@@ -9,7 +9,7 @@ const API = {
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/files/4d3bef16-10e6-4520-9190-62870f525c1a.jpg";
 const PAIN_IMG = "https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/files/670f2ef7-e251-421b-97bb-6d1f008605c1.jpg";
-const SUCCESS_IMG = "https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/files/c564a6fa-0be9-4bb5-9e1e-56687a5edb25.jpg";
+const SUCCESS_IMG = "https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/files/254d0669-f859-42ec-8ed9-207d37eedaff.jpg";
 
 const TICKER_ITEMS = ["ЖИМ НЕ ВРЁТ", "100 КГ ЗА 8 НЕДЕЛЬ", "НАЙДИ СВОЮ ОШИБКУ", "СИСТЕМА РАБОТАЕТ", "БЕЗ ВОДЫ И ОБЕЩАНИЙ", "РЕЗУЛЬТАТ ИЗМЕРЯЕТСЯ"];
 
