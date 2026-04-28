@@ -1,0 +1,11 @@
+{
+  "tests": [
+    {
+      "name": "Track event",
+      "method": "POST",
+      "path": "/",
+      "body": {"event": "test_event", "source": "test"},
+      "expectedStatus": 200
+    }
+  ]
+}

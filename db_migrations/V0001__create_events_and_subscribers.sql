@@ -1,0 +1,14 @@
+
+CREATE TABLE IF NOT EXISTS t_p95342435_press_100kg_project.events (
+  id SERIAL PRIMARY KEY,
+  event VARCHAR(100) NOT NULL,
+  data JSONB DEFAULT '{}',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS t_p95342435_press_100kg_project.subscribers (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  source VARCHAR(100) DEFAULT 'pdf_offer',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
