@@ -8,7 +8,7 @@ const API = {
 };
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/files/4d3bef16-10e6-4520-9190-62870f525c1a.jpg";
-const PAIN_IMG = "https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/files/34d4352b-5a27-4a2b-827d-20ead3f28ce7.jpg";
+const PAIN_IMG = "https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/files/2d4ae8ca-9399-4223-9e46-ac465a9ef63a.jpg";
 const SUCCESS_IMG = "https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/files/c564a6fa-0be9-4bb5-9e1e-56687a5edb25.jpg";
 
 const TICKER_ITEMS = ["ЖИМ НЕ ВРЁТ", "100 КГ ЗА 8 НЕДЕЛЬ", "НАЙДИ СВОЮ ОШИБКУ", "СИСТЕМА РАБОТАЕТ", "БЕЗ ВОДЫ И ОБЕЩАНИЙ", "РЕЗУЛЬТАТ ИЗМЕРЯЕТСЯ"];
@@ -51,7 +51,7 @@ const AI_CARDS = [
 ];
 
 const PRICING = [
-  { icon: "🎁", title: "Старт", desc: "PDF «7 ошибок» + канал", price: "0 руб.", cta: "Начать бесплатно →", href: "https://t.me/zhim_ne_vret", future: "«Завтра ты уже знаешь свою ошибку»", featured: false },
+  { icon: "🎁", title: "Старт", desc: "Гайд «7 ошибок» + канал", price: "0 руб.", cta: "Начать бесплатно →", href: "https://t.me/zhim_ne_vret", future: "«Завтра ты уже знаешь свою ошибку»", featured: false },
   { icon: "💪", title: "Базовый", desc: "Гайд «100 кг за 8 недель»", price: "700 руб.", cta: "Купить →", href: "#contact", future: "«Завтра у тебя есть план на 8 недель»", featured: false },
   { icon: "🍖", title: "Сила + Питание", desc: "Гайд по жиму + гайд по питанию", price: "1 200 руб.", cta: "Купить →", href: "#contact", future: "«Завтра работает и тренировка, и восстановление»", featured: false },
   { icon: "🤖", title: "С тренером", desc: "Оба гайда + AI «Жим не врёт»", price: "2 500 руб.", cta: "Купить →", href: "#contact", future: "«Завтра на любой вопрос есть ответ»", featured: false },
@@ -60,7 +60,7 @@ const PRICING = [
 
 const FAQS = [
   { q: "— Чем это отличается от бесплатных программ в интернете?", a: "Бесплатные программы написаны для всех — значит ни для кого. Этот гайд написан для конкретного отрезка 75–85 кг 1ПМ, с конкретными цифрами и AI-ассистентом под твою личную ситуацию." },
-  { q: "— Я не знаю свой 1ПМ точно. Что делать?", a: "В бесплатном PDF есть простой протокол — как выйти на реальный максимум за одну тренировку без риска травмы." },
+  { q: "— Я не знаю свой 1ПМ точно. Что делать?", a: "В бесплатном гайде есть простой протокол — как выйти на реальный максимум за одну тренировку без риска травмы." },
   { q: "— У меня нет опыта соревнований. Подойдёт?", a: "Программа для любителей, которые тренируются ради результата — не ради медалей. Именно для тебя." },
   { q: "— Что если не пойдёт?", a: "Напиши в Telegram. Разберём твою ситуацию отдельно." },
   { q: "— Почему так дёшево?", a: "Потому что портфолио пока строится. Первые покупатели получают реальную цену — не маркетинговую. Когда появятся результаты клиентов — цена вырастет." },
@@ -122,7 +122,7 @@ function SubscribeForm({ source, size = "normal" }: { source: string; size?: "no
     return (
       <div className="flex items-center gap-3 text-[#00ff88] font-semibold py-3">
         <span>✔</span>
-        <span>PDF отправлен! Проверь почту и Telegram</span>
+        <span>Гайд отправлен! Проверь почту и Telegram</span>
       </div>
     );
   }
@@ -142,7 +142,7 @@ function SubscribeForm({ source, size = "normal" }: { source: string; size?: "no
         disabled={loading}
         className={`btn-cyan font-bold whitespace-nowrap ${size === "large" ? "px-8 py-4 text-base" : "px-6 py-3 text-sm"}`}
       >
-        {loading ? "..." : "Получить PDF →"}
+        {loading ? "..." : "Получить гайд →"}
       </button>
     </form>
   );
@@ -200,8 +200,8 @@ export default function Index() {
                 <SubscribeForm source="hero" size="large" />
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                <p style={{ fontSize: 14, color: "#6b7b8a" }}>PDF «7 ошибок жима» — сразу после подписки на канал</p>
-                <p style={{ fontSize: 14, color: "#6b7b8a" }}>Уже скачали 128 атлетов</p>
+                <p style={{ fontSize: 14, color: "#6b7b8a" }}>Гайд «7 ошибок жима» — сразу после подписки на канал</p>
+                <p style={{ fontSize: 14, color: "#6b7b8a" }}>Уже скачали 30 атлетов</p>
               </div>
             </Reveal>
 
@@ -313,7 +313,7 @@ export default function Index() {
             <Reveal>
               <div className="float" style={{ maxWidth: 360, margin: "0 auto" }}>
                 <div style={{ background: "#0d1c28", borderRadius: 16, padding: 40, border: "1px solid rgba(0,212,255,0.3)", boxShadow: "0 20px 60px rgba(0,212,255,0.15)", textAlign: "center" }}>
-                  <div style={{ fontSize: 13, color: "#ff2d2d", fontWeight: 700, letterSpacing: "0.2em", marginBottom: 16 }}>БЕСПЛАТНЫЙ PDF</div>
+                  <div style={{ fontSize: 13, color: "#ff2d2d", fontWeight: 700, letterSpacing: "0.2em", marginBottom: 16 }}>БЕСПЛАТНЫЙ ГАЙД</div>
                   <div style={{ fontSize: 28, fontWeight: 700, color: "#00d4ff", marginBottom: 8 }}>7 ОШИБОК ЖИМА</div>
                   <div style={{ fontSize: 14, color: "#9ba8b3", marginBottom: 8 }}>КОТОРЫЕ КРАДУТ</div>
                   <div style={{ fontSize: 48, fontWeight: 700, color: "#ff2d2d" }}>10–20 КГ</div>
@@ -332,7 +332,7 @@ export default function Index() {
               <h2 style={{ fontSize: "clamp(26px,3vw,36px)", fontWeight: 700, marginBottom: 16 }}>
                 Начни бесплатно — найди свою ошибку сегодня
               </h2>
-              <h3 style={{ fontSize: 22, color: "#00d4ff", marginBottom: 20 }}>PDF «7 ошибок жима, которые крадут 10–20 кг»</h3>
+              <h3 style={{ fontSize: 22, color: "#00d4ff", marginBottom: 20 }}>Гайд «7 ошибок жима, которые крадут 10–20 кг»</h3>
               <p style={{ fontSize: 17, color: "#9ba8b3", marginBottom: 24, lineHeight: 1.6 }}>
                 Не теория. Конкретная самодиагностика — читаешь, проверяешь себя, находишь свою ошибку за 15 минут.
               </p>
@@ -345,7 +345,7 @@ export default function Index() {
               </ul>
               <p style={{ fontSize: 24, color: "#00ff88", marginBottom: 24, fontWeight: 600 }}>Это бесплатно.</p>
               <SubscribeForm source="pdf_section" size="large" />
-              <p style={{ fontSize: 14, color: "#6b7b8a", marginTop: 12 }}>Или подпишись на канал <a href="https://t.me/zhim_ne_vret" style={{ color: "#00d4ff" }}>«Жим не врёт»</a> — получи PDF сразу.</p>
+              <p style={{ fontSize: 14, color: "#6b7b8a", marginTop: 12 }}>Или подпишись на канал <a href="https://t.me/zhim_ne_vret" style={{ color: "#00d4ff" }}>«Жим не врёт»</a> — получи гайд сразу.</p>
             </Reveal>
           </div>
         </div>
@@ -746,7 +746,7 @@ export default function Index() {
                     onClick={() => trackEvent("tg_click")}
                     className="btn-cyan px-8 py-4 text-base font-bold inline-flex mt-3"
                   >
-                    Получить PDF бесплатно →
+                    Получить гайд бесплатно →
                   </a>
                 </div>
               </div>
