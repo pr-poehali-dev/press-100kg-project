@@ -42,32 +42,18 @@
 }
 
 /* CUSTOM CURSOR */
-.dumbbell-cursor {
-  position: fixed;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.08s ease;
-  will-change: transform, left, top;
-}
-.dumbbell-cursor svg {
-  display: block;
-  filter: drop-shadow(0 0 6px rgba(0, 212, 255, 0.7));
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.dumbbell-cursor.hovering svg {
-  transform: rotate(90deg);
-}
-@keyframes dumbbell-spin {
-  0% {
-    transform: rotate(90deg);
-  }
+@keyframes cursor-pulse {
+  0%,
   100% {
-    transform: rotate(450deg);
+    box-shadow:
+      0 0 14px 5px #e879f999,
+      0 0 28px 8px #e879f944;
   }
-}
-.dumbbell-cursor.clicking svg {
-  animation: dumbbell-spin 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  50% {
+    box-shadow:
+      0 0 22px 10px #e879f9cc,
+      0 0 44px 16px #e879f966;
+  }
 }
 
 /* SCROLLBAR */

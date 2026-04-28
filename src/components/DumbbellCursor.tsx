@@ -1,70 +1,101 @@
 import { useEffect, useRef, useState } from "react";
 
+const TRAIL_LENGTH = 10;
+const COLOR = "#e879f9"; // fuchsia — не сливается ни с cyan, ни с тёмным фоном
+
+interface TrailDot {
+  x: number;
+  y: number;
+  id: number;
+}
+
 export default function DumbbellCursor() {
-  const cursorRef = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState({ x: -200, y: -200 });
+  const [trail, setTrail] = useState<TrailDot[]>([]);
   const [hovering, setHovering] = useState(false);
-  const [clicking, setClicking] = useState(false);
-  const pos = useRef({ x: -100, y: -100 });
-  const raf = useRef<number>(0);
+  const idRef = useRef(0);
+  const rafRef = useRef<number>(0);
+  const rawPos = useRef({ x: -200, y: -200 });
 
   useEffect(() => {
-    const move = (e: MouseEvent) => {
-      pos.current = { x: e.clientX, y: e.clientY };
-    };
+    const onMove = (e: MouseEvent) => {
+      rawPos.current = { x: e.clientX, y: e.clientY };
 
-    const update = () => {
-      if (cursorRef.current) {
-        cursorRef.current.style.left = pos.current.x + "px";
-        cursorRef.current.style.top = pos.current.y + "px";
-      }
-      raf.current = requestAnimationFrame(update);
-    };
+      setTrail((prev) => {
+        const next = [
+          { x: e.clientX, y: e.clientY, id: idRef.current++ },
+          ...prev,
+        ].slice(0, TRAIL_LENGTH);
+        return next;
+      });
 
-    const onOver = (e: MouseEvent) => {
       const t = e.target as HTMLElement;
       setHovering(
-        !!(t.closest("a, button, [role='button'], input, textarea, select, label, [onclick]"))
+        !!(t.closest("a, button, [role='button'], input, textarea, select, label"))
       );
     };
 
-    const onDown = () => {
-      setClicking(true);
-      setTimeout(() => setClicking(false), 420);
+    const tick = () => {
+      setPos({ ...rawPos.current });
+      rafRef.current = requestAnimationFrame(tick);
     };
 
-    window.addEventListener("mousemove", move);
-    window.addEventListener("mouseover", onOver);
-    window.addEventListener("mousedown", onDown);
-    raf.current = requestAnimationFrame(update);
+    window.addEventListener("mousemove", onMove);
+    rafRef.current = requestAnimationFrame(tick);
 
     return () => {
-      window.removeEventListener("mousemove", move);
-      window.removeEventListener("mouseover", onOver);
-      window.removeEventListener("mousedown", onDown);
-      cancelAnimationFrame(raf.current);
+      window.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(rafRef.current);
     };
   }, []);
 
-  const cls = [
-    "dumbbell-cursor",
-    hovering ? "hovering" : "",
-    clicking ? "clicking" : "",
-  ].join(" ").trim();
-
   return (
-    <div ref={cursorRef} className={cls}>
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Левая большая пластина */}
-        <rect x="1" y="9" width="4" height="10" rx="2" fill="#00d4ff"/>
-        {/* Левая малая пластина */}
-        <rect x="5" y="11" width="3" height="6" rx="1.5" fill="#00b8e6"/>
-        {/* Гриф */}
-        <rect x="8" y="12.5" width="12" height="3" rx="1.5" fill="#e8f4f8"/>
-        {/* Правая малая пластина */}
-        <rect x="20" y="11" width="3" height="6" rx="1.5" fill="#00b8e6"/>
-        {/* Правая большая пластина */}
-        <rect x="23" y="9" width="4" height="10" rx="2" fill="#00d4ff"/>
-      </svg>
-    </div>
+    <>
+      {/* След */}
+      {trail.map((dot, i) => {
+        const opacity = (1 - i / TRAIL_LENGTH) * 0.5;
+        const size = 8 * (1 - i / TRAIL_LENGTH);
+        return (
+          <div
+            key={dot.id}
+            style={{
+              position: "fixed",
+              left: dot.x,
+              top: dot.y,
+              width: size,
+              height: size,
+              borderRadius: "50%",
+              background: COLOR,
+              opacity,
+              transform: "translate(-50%, -50%)",
+              pointerEvents: "none",
+              zIndex: 99998,
+              transition: "opacity 0.1s",
+            }}
+          />
+        );
+      })}
+
+      {/* Основная точка */}
+      <div
+        style={{
+          position: "fixed",
+          left: pos.x,
+          top: pos.y,
+          width: hovering ? 18 : 10,
+          height: hovering ? 18 : 10,
+          borderRadius: "50%",
+          background: COLOR,
+          transform: "translate(-50%, -50%)",
+          pointerEvents: "none",
+          zIndex: 99999,
+          boxShadow: hovering
+            ? `0 0 14px 5px ${COLOR}99, 0 0 28px 8px ${COLOR}44`
+            : `0 0 8px 3px ${COLOR}88`,
+          transition: "width 0.2s ease, height 0.2s ease, box-shadow 0.2s ease",
+          animation: hovering ? "cursor-pulse 1s ease-in-out infinite" : "none",
+        }}
+      />
+    </>
   );
 }
