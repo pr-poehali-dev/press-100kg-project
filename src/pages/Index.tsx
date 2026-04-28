@@ -200,7 +200,20 @@ export default function Index() {
                 <SubscribeForm source="hero" size="large" />
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                <p style={{ fontSize: 14, color: "#6b7b8a" }}>Гайд «7 ошибок жима» — сразу после подписки на канал</p>
+                <p style={{ fontSize: 14, color: "#6b7b8a" }}>
+                  Гайд «7 ошибок жима» — сразу после подписки на канал{" "}
+                  <a
+                    href="https://t.me/zhim_ne_vret"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#00d4ff", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 4 }}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#00d4ff" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.076 14.05l-2.95-.924c-.642-.204-.657-.642.136-.953l11.57-4.461c.537-.194 1.006.131.832.509z"/>
+                    </svg>
+                    @zhim_ne_vret
+                  </a>
+                </p>
                 <p style={{ fontSize: 14, color: "#6b7b8a" }}>Уже скачали 30 атлетов</p>
               </div>
             </Reveal>
