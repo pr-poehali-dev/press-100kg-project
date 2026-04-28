@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import Icon from "@/components/ui/icon";
 import func2url from "../../backend/func2url.json";
 
 const API = {
@@ -8,53 +7,63 @@ const API = {
   stats: func2url.stats,
 };
 
-const TICKER_ITEMS = [
-  "СТАНЬ БЫСТРЕЕ",
-  "ТРЕНИРУЙСЯ УМНЕЕ",
-  "РЕЗУЛЬТАТ ГАРАНТИРОВАН",
-  "8 НЕДЕЛЬ ДО ЦЕЛИ",
-  "БЕЗ ЛИШНИХ СЛОВ",
-  "ТОЛЬКО ПРАКТИКА",
+const HERO_IMG = "https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/files/4d3bef16-10e6-4520-9190-62870f525c1a.jpg";
+const PAIN_IMG = "https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/files/34d4352b-5a27-4a2b-827d-20ead3f28ce7.jpg";
+const SUCCESS_IMG = "https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/files/c564a6fa-0be9-4bb5-9e1e-56687a5edb25.jpg";
+
+const TICKER_ITEMS = ["ЖИМ НЕ ВРЁТ", "100 КГ ЗА 8 НЕДЕЛЬ", "НАЙДИ СВОЮ ОШИБКУ", "СИСТЕМА РАБОТАЕТ", "БЕЗ ВОДЫ И ОБЕЩАНИЙ", "РЕЗУЛЬТАТ ИЗМЕРЯЕТСЯ"];
+
+const PAIN_ITEMS = [
+  "Программу брал у кого-то в зале или из YouTube — у него работало, у тебя нет",
+  "Смотришь на технику профи, всё повторяешь — вес стоит",
+  "Советов в интернете миллион, они противоречат друг другу",
+  "Думаешь «надо просто больше есть» — но непонятно сколько и чего именно",
+  "После тяжёлой тренировки болят плечи или локти — но терпишь",
+  "Уже начинаешь верить, что сотка — это «не моё»",
 ];
 
-const PAIN_POINTS = [
-  {
-    icon: "TrendingDown",
-    title: "Тренируешься, но результат не растёт",
-    text: "Часы в зале, а прогресс стоит на месте. Это не лень — это неправильная система.",
-  },
-  {
-    icon: "AlertTriangle",
-    title: "Постоянные травмы и «непонятные» боли",
-    text: "Колени, спина, плечи — болит всё по очереди. Потому что техника и нагрузки выстроены неверно.",
-  },
-  {
-    icon: "Clock",
-    title: "Нет времени на длинные тренировки",
-    text: "Работа, семья, жизнь. 3 часа в зале — роскошь. Нужна система, которая даёт результат за 60 минут.",
-  },
-  {
-    icon: "Brain",
-    title: "Не знаешь, с чего начать",
-    text: "YouTube, блогеры, «эксперты» — все говорят разное. Информационный перегруз парализует действие.",
-  },
-  {
-    icon: "Target",
-    title: "Мотивация пропадает через 2 недели",
-    text: "Начинаешь с огнём, а через месяц — снова на диване. Без правильной структуры прогресс не держит.",
-  },
-  {
-    icon: "BarChart2",
-    title: "Питание — полный хаос",
-    text: "Считаешь калории? Не считаешь? Едешь на интуиции? Без чёткого плана — результат случайный.",
-  },
+const PDF_CHECKLIST = [
+  "7 технических и системных ошибок на отрезке 75–95 кг",
+  "По каждой — простой тест: как проверить себя прямо сейчас",
+  "Что конкретно исправить — без воды, без «зависит от ситуации»",
+  "Почему эти ошибки не видны самому — и почему их не замечает тренер в зале",
 ];
 
-const GUIDE_WEEKS = [
-  { week: "1–2", title: "Диагностика и база", desc: "Оцениваем стартовую точку, закладываем правильную механику движений" },
-  { week: "3–4", title: "Интенсификация", desc: "Наращиваем нагрузку, строим мышечную выносливость и силу" },
-  { week: "5–6", title: "Пик формы", desc: "Максимальные рабочие веса, взрывная работа, жиросжигание" },
-  { week: "7–8", title: "Финал и результат", desc: "Закрепляем прогресс, делаем замеры, выстраиваем дальнейший план" },
+const GUIDE_CHECKLIST = [
+  "8-недельный план — точные веса, сеты, повторы на каждую тренировку",
+  "Волновая нагрузка + линейная прогрессия — почему именно так, а не иначе",
+  "Вспомогательные упражнения под три слабых места: старт, провал, дожим",
+  "Питание под программу — конкретные цифры под твой вес, не «ешь больше белка»",
+];
+
+const NUTRITION_CHECKLIST = [
+  "Расчёт калорийности под твои параметры — конкретные цифры, не диапазоны",
+  "Белок, углеводы, жиры под жим лёжа — сколько, когда и почему",
+  "Питание в тренировочный и восстановительный день — они принципиально разные",
+  "Что есть до и после тренировки — с конкретным таймингом",
+  "Спортивное питание — что реально работает, что переплата",
+];
+
+const AI_CARDS = [
+  { icon: "💪", title: "Жим не врёт — AI-тренер", text: "Вопрос по технике, программе или прогрессу — получаешь ответ под свою ситуацию. Работает 24/7." },
+  { icon: "🍖", title: "Топливо — AI по питанию", text: "Рассчитает питание под твой вес и расписание. Отдельно под тренировочный день, отдельно под отдых." },
+  { icon: "📋", title: "Сборка — AI-конструктор программ", text: "Составит программу под любую цель. Не только жим — любое силовое направление." },
+];
+
+const PRICING = [
+  { icon: "🎁", title: "Старт", desc: "PDF «7 ошибок» + канал", price: "0 руб.", cta: "Начать бесплатно →", href: "https://t.me/zhim_ne_vret", future: "«Завтра ты уже знаешь свою ошибку»", featured: false },
+  { icon: "💪", title: "Базовый", desc: "Гайд «100 кг за 8 недель»", price: "700 руб.", cta: "Купить →", href: "#contact", future: "«Завтра у тебя есть план на 8 недель»", featured: false },
+  { icon: "🍖", title: "Сила + Питание", desc: "Гайд по жиму + гайд по питанию", price: "1 200 руб.", cta: "Купить →", href: "#contact", future: "«Завтра работает и тренировка, и восстановление»", featured: false },
+  { icon: "🤖", title: "С тренером", desc: "Оба гайда + AI «Жим не врёт»", price: "2 500 руб.", cta: "Купить →", href: "#contact", future: "«Завтра на любой вопрос есть ответ»", featured: false },
+  { icon: "🔥", title: "Полная система", desc: "Оба гайда + все 3 AI", price: "3 500 руб.", cta: "Купить →", href: "#contact", future: "«Завтра у тебя тренер, нутрициолог и программист в кармане»", featured: true },
+];
+
+const FAQS = [
+  { q: "— Чем это отличается от бесплатных программ в интернете?", a: "Бесплатные программы написаны для всех — значит ни для кого. Этот гайд написан для конкретного отрезка 75–85 кг 1ПМ, с конкретными цифрами и AI-ассистентом под твою личную ситуацию." },
+  { q: "— Я не знаю свой 1ПМ точно. Что делать?", a: "В бесплатном PDF есть простой протокол — как выйти на реальный максимум за одну тренировку без риска травмы." },
+  { q: "— У меня нет опыта соревнований. Подойдёт?", a: "Программа для любителей, которые тренируются ради результата — не ради медалей. Именно для тебя." },
+  { q: "— Что если не пойдёт?", a: "Напиши в Telegram. Разберём твою ситуацию отдельно." },
+  { q: "— Почему так дёшево?", a: "Потому что портфолио пока строится. Первые покупатели получают реальную цену — не маркетинговую. Когда появятся результаты клиентов — цена вырастет." },
 ];
 
 function useReveal() {
@@ -62,394 +71,568 @@ function useReveal() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) el.classList.add("visible"); },
-      { threshold: 0.15 }
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) el.classList.add("visible"); },
+      { threshold: 0.12 }
     );
-    observer.observe(el);
-    return () => observer.disconnect();
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
   return ref;
 }
 
-function RevealSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+function Reveal({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const ref = useReveal();
   return <div ref={ref} className={`reveal ${className}`}>{children}</div>;
 }
 
 function trackEvent(event: string, data?: Record<string, string>) {
-  const payload = { event, ...data, ts: Date.now().toString() };
   fetch(API.track, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
+    body: JSON.stringify({ event, ...data }),
   }).catch(() => {});
 }
 
-export default function Index() {
+function SubscribeForm({ source, size = "normal" }: { source: string; size?: "normal" | "large" }) {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [done, setDone] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [stats, setStats] = useState({ clicks: 0, subscriptions: 0, conversions: 0 });
-
-  useEffect(() => {
-    trackEvent("page_view");
-    fetch(API.stats)
-      .then((r) => r.json())
-      .then((d) => setStats(d))
-      .catch(() => {});
-  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email) return;
     setLoading(true);
-    trackEvent("pdf_subscribe", { email });
+    trackEvent("pdf_subscribe", { email, source });
     try {
       await fetch(API.subscribe, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source: "pdf_offer" }),
+        body: JSON.stringify({ email, source }),
       });
-      setSubmitted(true);
-      setStats((s) => ({ ...s, subscriptions: s.subscriptions + 1 }));
-    } catch {
-      setSubmitted(true);
+    } catch (_) {
+      // ignore
     } finally {
+      setDone(true);
       setLoading(false);
     }
   }
 
-  function handleGuideClick() {
-    trackEvent("guide_click");
-    setStats((s) => ({ ...s, clicks: s.clicks + 1 }));
+  if (done) {
+    return (
+      <div className="flex items-center gap-3 text-[#00ff88] font-semibold py-3">
+        <span>✔</span>
+        <span>PDF отправлен! Проверь почту и Telegram</span>
+      </div>
+    );
   }
 
-  function handleTgClick() {
-    trackEvent("telegram_click");
-  }
+  return (
+    <form onSubmit={handleSubmit} className={`flex flex-col sm:flex-row gap-3 ${size === "large" ? "max-w-lg" : "max-w-md"}`}>
+      <input
+        type="email"
+        required
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="твой@email.ru"
+        className={`sport-input flex-1 px-4 ${size === "large" ? "py-4 text-base" : "py-3 text-sm"}`}
+      />
+      <button
+        type="submit"
+        disabled={loading}
+        className={`btn-cyan font-bold whitespace-nowrap ${size === "large" ? "px-8 py-4 text-base" : "px-6 py-3 text-sm"}`}
+      >
+        {loading ? "..." : "Получить PDF →"}
+      </button>
+    </form>
+  );
+}
+
+export default function Index() {
+  useEffect(() => {
+    trackEvent("page_view");
+    fetch(API.stats).catch(() => {});
+  }, []);
 
   const tickerDouble = [...TICKER_ITEMS, ...TICKER_ITEMS];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
+    <div className="min-h-screen" style={{ backgroundColor: "#060d14", color: "#e8f4f8" }}>
+
+      {/* NAV */}
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, background: "rgba(6,13,20,0.95)", backdropFilter: "blur(10px)", borderBottom: "1px solid rgba(0,212,255,0.2)" }}>
+        <div className="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
+          <div style={{ fontSize: 20, fontWeight: 700, color: "#00d4ff" }}>
+            ⚡ <span style={{ color: "#e8f4f8" }}>Жим не врёт</span>
+          </div>
+          <a
+            href="#start"
+            onClick={() => trackEvent("nav_cta_click")}
+            className="btn-cyan px-5 py-2 text-sm font-bold"
+          >
+            Начать бесплатно →
+          </a>
+        </div>
+      </nav>
 
       {/* HERO */}
-      <section className="relative min-h-screen flex flex-col justify-center grid-pattern">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-[#ff5500] opacity-[0.06] blur-[120px]" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-[#ffd600] opacity-[0.04] blur-[100px]" />
-        </div>
+      <section className="grid-pattern" style={{ minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: 100, paddingBottom: 80, position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "30%", left: "50%", transform: "translateX(-50%)", width: 700, height: 700, borderRadius: "50%", background: "#00d4ff", opacity: 0.04, filter: "blur(120px)", pointerEvents: "none" }} />
+        <div className="max-w-6xl mx-auto px-5 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <Reveal>
+              <h1 style={{ fontSize: "clamp(32px,4vw,48px)", lineHeight: 1.25, marginBottom: 24, fontWeight: 700 }}>
+                Ты жмёшь одно и то же уже несколько месяцев.<br />
+                <span style={{ color: "#00d4ff" }}>Вес не растёт.</span> И ты начинаешь думать, что это твой потолок.
+              </h1>
+              <p style={{ fontSize: 20, color: "#9ba8b3", marginBottom: 32, lineHeight: 1.6 }}>
+                Это не потолок. Это одна из семи ошибок, которые совершает каждый второй атлет на отрезке 75–95 кг. Найди свою — бесплатно — прямо сейчас.
+              </p>
 
-        <div className="relative z-10 container mx-auto px-4 py-20 text-center">
-          <div className="inline-flex items-center gap-2 bg-[#ff5500]/10 border border-[#ff5500]/30 rounded-full px-4 py-2 mb-8 text-sm font-body text-[#ff8c00] animate-fade-in">
-            <span className="w-2 h-2 rounded-full bg-[#ff5500] pulse-glow inline-block" />
-            Бесплатный PDF — уже доступен
-          </div>
-
-          <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold uppercase leading-none mb-6 animate-fade-up">
-            <span className="block text-white">7 ошибок,</span>
-            <span className="block gradient-text">которые убивают</span>
-            <span className="block text-white">твой прогресс</span>
-          </h1>
-
-          <p className="font-body text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-            Получи бесплатный PDF с разбором 7 критических ошибок атлетов — и начни расти уже на следующей тренировке
-          </p>
-
-          <div className="animate-fade-up" style={{ animationDelay: "0.4s" }}>
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="твой@email.ru"
-                  className="sport-input flex-1 px-5 py-4 rounded-lg text-base font-body"
-                />
-                <button
-                  type="submit"
-                  disabled={loading}
-                  onClick={() => trackEvent("pdf_cta_click")}
-                  className="btn-fire px-8 py-4 rounded-lg text-base whitespace-nowrap"
-                >
-                  <span>{loading ? "Отправляем..." : "ПОЛУЧИТЬ PDF"}</span>
-                </button>
-              </form>
-            ) : (
-              <div className="inline-flex items-center gap-3 bg-[#00FF87]/10 border border-[#00FF87]/30 rounded-xl px-6 py-4 text-[#00FF87] font-body">
-                <Icon name="CheckCircle" size={20} />
-                PDF отправлен! Проверь почту
+              <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 32, padding: 20, background: "rgba(0,212,255,0.05)", borderRadius: 12, border: "1px solid rgba(0,212,255,0.2)" }}>
+                <div className="float" style={{ width: 110, height: 110, borderRadius: "50%", background: "linear-gradient(145deg,#1a2633,#0d1520)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, fontWeight: 700, color: "#00d4ff", flexShrink: 0 }}>80 кг</div>
+                <div style={{ fontSize: 32, color: "#00d4ff" }}>→</div>
+                <div className="pulse-cyan" style={{ width: 110, height: 110, borderRadius: "50%", background: "linear-gradient(145deg,#1a2633,#0d1520)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, fontWeight: 700, color: "#00d4ff", flexShrink: 0 }}>100 кг</div>
+                <div style={{ fontSize: 13, color: "#9ba8b3" }}>одна<br />ошибка</div>
               </div>
-            )}
-          </div>
 
-          <div className="mt-8 flex justify-center gap-8 text-sm text-white/40 animate-fade-in" style={{ animationDelay: "0.6s" }}>
-            <span className="flex items-center gap-1"><Icon name="Shield" size={14} />Без спама</span>
-            <span className="flex items-center gap-1"><Icon name="Zap" size={14} />Мгновенно</span>
-            <span className="flex items-center gap-1"><Icon name="Download" size={14} />Бесплатно</span>
-          </div>
-        </div>
+              <div className="mb-6">
+                <SubscribeForm source="hero" size="large" />
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                <p style={{ fontSize: 14, color: "#6b7b8a" }}>PDF «7 ошибок жима» — сразу после подписки на канал</p>
+                <p style={{ fontSize: 14, color: "#6b7b8a" }}>Уже скачали 128 атлетов</p>
+              </div>
+            </Reveal>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white/30">
-          <Icon name="ChevronDown" size={24} />
+            <Reveal>
+              <img src={HERO_IMG} alt="Атлет жмёт лёжа" style={{ width: "100%", borderRadius: 16, boxShadow: "0 20px 60px rgba(0,212,255,0.2)" }} />
+            </Reveal>
+          </div>
         </div>
       </section>
 
       {/* TICKER */}
-      <div className="ticker-wrap py-4 bg-[#ff5500] overflow-hidden">
+      <div className="ticker-wrap py-4" style={{ background: "#00d4ff" }}>
         <div className="ticker-content">
           {tickerDouble.map((item, i) => (
-            <span key={i} className="font-heading font-bold text-white text-lg tracking-widest uppercase mx-8">
-              {item} <span className="text-white/40 mx-4">✦</span>
+            <span key={i} style={{ fontWeight: 700, color: "#060d14", fontSize: 15, letterSpacing: "0.2em", textTransform: "uppercase", marginLeft: 40, marginRight: 40 }}>
+              {item} <span style={{ opacity: 0.4, marginLeft: 12, marginRight: 12 }}>✦</span>
             </span>
           ))}
         </div>
       </div>
 
-      {/* PAIN POINTS */}
-      <section className="py-24 relative">
-        <div className="container mx-auto px-4">
-          <RevealSection className="text-center mb-16">
-            <span className="font-heading text-[#ff5500] text-sm tracking-[0.3em] uppercase">Узнаёшь себя?</span>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold uppercase text-white mt-3">
-              Почему ты не растёшь
-            </h2>
-            <p className="font-body text-white/50 mt-4 max-w-xl mx-auto">
-              Мы проанализировали 500+ атлетов и выявили 6 паттернов, которые стопорят 90% людей
-            </p>
-          </RevealSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {PAIN_POINTS.map((p, i) => (
-              <RevealSection key={i}>
-                <div className="pain-card p-6 rounded-xl h-full" style={{ transitionDelay: `${i * 0.08}s` }}>
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-[#ff5500]/10 flex items-center justify-center shrink-0">
-                      <Icon name={p.icon} size={20} className="text-[#ff5500]" />
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-base font-bold text-white uppercase mb-2">{p.title}</h3>
-                      <p className="font-body text-sm text-white/50 leading-relaxed">{p.text}</p>
-                    </div>
-                  </div>
-                </div>
-              </RevealSection>
-            ))}
+      {/* PAIN */}
+      <section id="pain" style={{ padding: "80px 0", background: "#1a0808" }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <Reveal>
+              <h2 style={{ fontSize: "clamp(28px,3.5vw,40px)", marginBottom: 32, fontWeight: 700 }}>Это про тебя?</h2>
+              <ul style={{ listStyle: "none", marginBottom: 32 }}>
+                {PAIN_ITEMS.map((item, i) => (
+                  <li key={i} style={{ padding: "14px 0", fontSize: 17, borderBottom: "1px solid rgba(255,45,45,0.15)" }}>
+                    <span className="pain-item" />{item}
+                  </li>
+                ))}
+              </ul>
+              <p style={{ fontSize: 18, color: "#9ba8b3", lineHeight: 1.7 }}>
+                Ни одна из этих проблем не решается силой воли или «просто больше тренироваться». Каждая — <span style={{ color: "#00d4ff", fontWeight: 600 }}>технический сбой в системе</span>. И у каждой есть конкретное решение.
+              </p>
+            </Reveal>
+            <Reveal>
+              <img src={PAIN_IMG} alt="Момент провала" style={{ width: "100%", height: 480, objectFit: "cover", borderRadius: 16, filter: "grayscale(20%)" }} />
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* OFFER — PDF */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-[#ffd600] opacity-[0.05] blur-[80px]" />
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto neon-border rounded-2xl p-8 md:p-12 scan-line bg-[#111]">
-            <RevealSection>
-              <div className="flex flex-col md:flex-row items-center gap-10">
-                <div className="flex-1">
-                  <span className="font-heading text-[#ffd600] text-xs tracking-[0.4em] uppercase">Бесплатно</span>
-                  <h2 className="font-heading text-3xl md:text-4xl font-bold uppercase text-white mt-2 mb-4">
-                    PDF: 7 ошибок,<br />которые держат тебя на месте
-                  </h2>
-                  <ul className="space-y-3 font-body text-white/70 text-sm mb-8">
-                    {[
-                      "Ошибка в тренировочном объёме — почему больше ≠ лучше",
-                      "Неправильное восстановление — упущенный рост",
-                      "Питание без системы — как слить прогресс за выходные",
-                      "Отсутствие периодизации — плато на годы",
-                      "Неправильная техника — травмы и потеря КПД",
-                      "Игнорирование сна — главный анаболик бесплатно",
-                      "Нет цели — нет прогресса",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="text-[#ff5500] mt-0.5 shrink-0"><Icon name="ChevronRight" size={16} /></span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  {!submitted ? (
-                    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-                      <input
-                        type="email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="твой@email.ru"
-                        className="sport-input flex-1 px-4 py-3 rounded-lg text-sm font-body"
-                      />
-                      <button type="submit" disabled={loading} className="btn-fire px-6 py-3 rounded-lg text-sm">
-                        <span>{loading ? "..." : "ХОЧУ PDF"}</span>
-                      </button>
-                    </form>
-                  ) : (
-                    <div className="flex items-center gap-2 text-[#00FF87] font-body text-sm">
-                      <Icon name="CheckCircle" size={16} />
-                      Отправлен! Проверь почту
-                    </div>
-                  )}
-                </div>
-                <div className="shrink-0 float">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-[#ff5500] blur-2xl opacity-30 rounded-2xl" />
-                    <img
-                      src="https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/files/395ae312-fe27-4053-8568-9cc72ec54ae5.jpg"
-                      alt="PDF Guide"
-                      className="relative w-52 h-52 object-cover rounded-2xl pulse-glow"
-                    />
-                    <div className="absolute -top-3 -right-3 bg-[#ffd600] text-black font-heading font-bold text-xs px-3 py-1 rounded-full uppercase">
-                      FREE
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </RevealSection>
-          </div>
-        </div>
-      </section>
-
-      {/* PAID GUIDE */}
-      <section className="py-24 relative">
-        <div className="absolute right-0 top-0 w-96 h-96 rounded-full bg-[#ff5500] opacity-[0.05] blur-[100px]" />
-        <div className="container mx-auto px-4">
-          <RevealSection className="text-center mb-16">
-            <span className="font-heading text-[#ff5500] text-sm tracking-[0.3em] uppercase">Для тех, кто серьёзно</span>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold uppercase text-white mt-3">
-              Гайд на 8 недель
+      {/* DEAD ZONE */}
+      <section style={{ padding: "80px 0", background: "#060d14" }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <Reveal className="text-center mb-12">
+            <h2 style={{ fontSize: "clamp(28px,3.5vw,40px)", fontWeight: 700, marginBottom: 12 }}>
+              Почему 80 кг — самый коварный вес в жиме
             </h2>
-            <p className="font-body text-white/50 mt-4 max-w-xl mx-auto">
-              Полная система — тренировки, питание, восстановление. Всё разложено по дням. Ничего лишнего.
-            </p>
-          </RevealSection>
+          </Reveal>
 
-          <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="space-y-4">
-                {GUIDE_WEEKS.map((w, i) => (
-                  <RevealSection key={i}>
-                    <div className="flex gap-4 p-5 bg-[#111] neon-border rounded-xl" style={{ transitionDelay: `${i * 0.1}s` }}>
-                      <div className="shrink-0">
-                        <div className="w-14 h-14 rounded-xl bg-[#ff5500]/10 border border-[#ff5500]/20 flex items-center justify-center">
-                          <span className="font-heading text-[#ff5500] font-bold text-xs leading-none text-center">НЕД<br />{w.week}</span>
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="font-heading text-white font-bold uppercase text-sm mb-1">{w.title}</h3>
-                        <p className="font-body text-white/50 text-sm">{w.desc}</p>
-                      </div>
-                    </div>
-                  </RevealSection>
+          <Reveal>
+            <div style={{ background: "rgba(13,28,40,0.5)", padding: "36px", borderRadius: 16, marginBottom: 32, border: "1px solid rgba(0,212,255,0.2)" }}>
+              <div className="scale-bar mb-5" />
+              <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
+                {[
+                  { w: "0 кг", l: "Новичок", red: false, green: false },
+                  { w: "70 кг", l: "Всё работает", red: false, green: false },
+                  { w: "75–95 кг", l: "МЁРТВАЯ ЗОНА (ты здесь)", red: true, green: false },
+                  { w: "100+ кг", l: "Осознанный атлет", red: false, green: true },
+                ].map((m, i) => (
+                  <div key={i} style={{ textAlign: "center" }}>
+                    <div style={{ fontWeight: 700, fontSize: 17, color: m.red ? "#ff2d2d" : m.green ? "#00ff88" : "#00d4ff" }}>{m.w}</div>
+                    <div style={{ fontSize: 12, color: m.red ? "#ff2d2d" : "#9ba8b3", marginTop: 4 }}>{m.l}</div>
+                  </div>
                 ))}
               </div>
             </div>
+          </Reveal>
 
-            <RevealSection>
-              <div className="neon-border rounded-2xl p-8 bg-[#111] text-center">
-                <img
-                  src="https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/files/5718a622-9a03-445b-aedd-5b392a9ef05d.jpg"
-                  alt="Training guide"
-                  className="w-full h-48 object-cover rounded-xl mb-6 opacity-80"
-                />
-                <div className="mb-2">
-                  <span className="font-heading text-5xl font-bold gradient-text">3 490 ₽</span>
+          <Reveal>
+            <div style={{ background: "rgba(13,28,40,0.8)", padding: 24, borderRadius: 12, borderLeft: "4px solid #ff2d2d", marginBottom: 32 }}>
+              <p style={{ fontSize: 16, lineHeight: 1.7 }}>
+                <strong>Анатомия проблемы:</strong> При весе 80+ кг в жиме критически включаются передняя дельта и трицепс. Именно они начинают отказывать первыми — и это невидимо при внешнем наблюдении.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+            {[
+              { title: "До 70 кг", text: "Тело новое в движении. Прогрессия идёт от любой нагрузки. Ошибки не мешают.", danger: false },
+              { title: "75–95 кг — мёртвая зона", text: "Тело адаптировалось. Линейный рост остановился. Системного подхода ещё нет. Большинство здесь и останавливаются — не потому что слабые, а потому что продолжают делать то, что работало раньше.", danger: true },
+              { title: "После 95 кг", text: "Атлет уже знает свои слабые места. Работает точечно и осознанно.", danger: false },
+            ].map((c, i) => (
+              <Reveal key={i}>
+                <div className="card-hover h-full" style={{ background: c.danger ? "rgba(255,45,45,0.08)" : "rgba(13,28,40,0.5)", padding: 24, borderRadius: 12, border: `1px solid ${c.danger ? "#ff2d2d" : "rgba(0,212,255,0.2)"}` }}>
+                  <h4 style={{ color: c.danger ? "#ff2d2d" : "#00d4ff", marginBottom: 12, fontSize: 17, fontWeight: 700 }}>{c.title}</h4>
+                  <p style={{ color: "#9ba8b3", fontSize: 15, lineHeight: 1.6 }}>{c.text}</p>
                 </div>
-                <p className="font-body text-white/40 text-xs mb-6">Разовая оплата · Доступ навсегда</p>
-                <ul className="text-left space-y-2 mb-8">
-                  {[
-                    "56 тренировочных дней с описанием",
-                    "План питания на каждую неделю",
-                    "Таблица прогресса и замеров",
-                    "Видео-разборы техники",
-                    "Поддержка в чате 8 недель",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 font-body text-white/70 text-sm">
-                      <Icon name="Check" size={14} className="text-[#00FF87] shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <button
-                  onClick={handleGuideClick}
-                  className="btn-fire w-full py-4 rounded-xl text-base"
-                >
-                  <span>КУПИТЬ ГАЙД</span>
-                </button>
-                <p className="font-body text-white/30 text-xs mt-3">Нажимая, ты перейдёшь в Telegram для оплаты</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <p style={{ fontSize: 26, color: "#00d4ff", textAlign: "center", fontWeight: 600 }}>
+              Тебе не нужна мотивация. Тебе нужна другая система.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* PDF OFFER */}
+      <section id="start" style={{ padding: "80px 0", background: "#0d1c28" }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <Reveal>
+              <div className="float" style={{ maxWidth: 360, margin: "0 auto" }}>
+                <div style={{ background: "#0d1c28", borderRadius: 16, padding: 40, border: "1px solid rgba(0,212,255,0.3)", boxShadow: "0 20px 60px rgba(0,212,255,0.15)", textAlign: "center" }}>
+                  <div style={{ fontSize: 13, color: "#ff2d2d", fontWeight: 700, letterSpacing: "0.2em", marginBottom: 16 }}>БЕСПЛАТНЫЙ PDF</div>
+                  <div style={{ fontSize: 28, fontWeight: 700, color: "#00d4ff", marginBottom: 8 }}>7 ОШИБОК ЖИМА</div>
+                  <div style={{ fontSize: 14, color: "#9ba8b3", marginBottom: 8 }}>КОТОРЫЕ КРАДУТ</div>
+                  <div style={{ fontSize: 48, fontWeight: 700, color: "#ff2d2d" }}>10–20 КГ</div>
+                </div>
               </div>
-            </RevealSection>
+              <div style={{ marginTop: 24, background: "rgba(0,212,255,0.05)", padding: 20, borderRadius: 12, borderLeft: "4px solid #00d4ff" }}>
+                <p style={{ color: "#00d4ff", fontWeight: 700, marginBottom: 10 }}>Из содержания:</p>
+                <ul style={{ listStyle: "none" }}>
+                  <li style={{ padding: "6px 0", color: "#9ba8b3", fontSize: 14 }}>— Ошибка №3: лопатки не сведены → теряешь до 8 кг на старте</li>
+                  <li style={{ padding: "6px 0", color: "#9ba8b3", fontSize: 14 }}>— Ошибка №6: неверная траектория грифа → провал на 60% подъёма</li>
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <h2 style={{ fontSize: "clamp(26px,3vw,36px)", fontWeight: 700, marginBottom: 16 }}>
+                Начни бесплатно — найди свою ошибку сегодня
+              </h2>
+              <h3 style={{ fontSize: 22, color: "#00d4ff", marginBottom: 20 }}>PDF «7 ошибок жима, которые крадут 10–20 кг»</h3>
+              <p style={{ fontSize: 17, color: "#9ba8b3", marginBottom: 24, lineHeight: 1.6 }}>
+                Не теория. Конкретная самодиагностика — читаешь, проверяешь себя, находишь свою ошибку за 15 минут.
+              </p>
+              <ul style={{ listStyle: "none", marginBottom: 24 }}>
+                {PDF_CHECKLIST.map((item, i) => (
+                  <li key={i} style={{ padding: "10px 0", fontSize: 17 }}>
+                    <span className="checklist-item" />{item}
+                  </li>
+                ))}
+              </ul>
+              <p style={{ fontSize: 24, color: "#00ff88", marginBottom: 24, fontWeight: 600 }}>Это бесплатно.</p>
+              <SubscribeForm source="pdf_section" size="large" />
+              <p style={{ fontSize: 14, color: "#6b7b8a", marginTop: 12 }}>Или подпишись на канал <a href="https://t.me/zhim_ne_vret" style={{ color: "#00d4ff" }}>«Жим не врёт»</a> — получи PDF сразу.</p>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* STATS TICKER */}
-      <div className="py-12 bg-[#111] border-y border-[#ff5500]/10">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-3 gap-4 text-center">
-            {[
-              { val: "500+", label: "Атлетов обучено" },
-              { val: "8", label: "Недель до результата" },
-              { val: "94%", label: "Достигают цели" },
-            ].map((s, i) => (
-              <RevealSection key={i}>
-                <div className="py-4">
-                  <div className="stat-number font-heading text-4xl md:text-5xl font-bold">{s.val}</div>
-                  <div className="font-body text-white/40 text-sm mt-1">{s.label}</div>
+      {/* GUIDE */}
+      <section id="guide" style={{ padding: "80px 0", background: "#081a10" }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <Reveal>
+              <h2 style={{ fontSize: "clamp(26px,3vw,36px)", fontWeight: 700, marginBottom: 16 }}>
+                Нашёл ошибку? Теперь нужна система, которая её исправит
+              </h2>
+              <h3 style={{ fontSize: 22, color: "#00d4ff", marginBottom: 20 }}>Гайд «Жим не врёт: 100 кг за 8 недель»</h3>
+              <p style={{ fontSize: 17, color: "#9ba8b3", marginBottom: 24, lineHeight: 1.6 }}>
+                Написан не по учебнику — на основе реального тренировочного процесса. С личным опытом, конкретными цифрами и пониманием того, где именно застревают атлеты на этом отрезке.
+              </p>
+              <div style={{ background: "rgba(255,45,45,0.08)", border: "2px solid #ff2d2d", padding: "18px 20px", borderRadius: 12, marginBottom: 24 }}>
+                <p style={{ fontSize: 15, lineHeight: 1.6 }}>
+                  <strong>Для кого:</strong> Текущий 1ПМ от 75 до 85 кг.<br />
+                  Ниже — сначала нужна база. Выше — напиши, подберём другой инструмент.
+                </p>
+              </div>
+              <ul style={{ listStyle: "none", marginBottom: 28 }}>
+                {GUIDE_CHECKLIST.map((item, i) => (
+                  <li key={i} style={{ padding: "10px 0", fontSize: 17 }}>
+                    <span className="checklist-item" />{item}
+                  </li>
+                ))}
+              </ul>
+              <div style={{ background: "#0d1c28", padding: 28, borderRadius: 12, borderLeft: "4px solid #00d4ff", marginBottom: 28 }}>
+                <blockquote style={{ fontSize: 16, lineHeight: 1.7, fontStyle: "italic", marginBottom: 12, color: "#9ba8b3" }}>
+                  «Я не мастер спорта. Я любитель, который прошёл этот путь сам — с ошибками, застреваниями и реальными результатами. Я знаю где ты застрял, потому что сам там был. Жим не врёт — это принцип: никаких обещаний, только то, что реально работает.»
+                </blockquote>
+                <p style={{ color: "#00d4ff", fontWeight: 700 }}>— Автор канала «Жим не врёт»</p>
+                <p style={{ color: "#9ba8b3", marginTop: 8, fontSize: 14 }}>1ПМ в начале: 82 кг → сейчас: 107 кг</p>
+              </div>
+              <a
+                href="#pricing"
+                onClick={() => trackEvent("guide_cta_click")}
+                className="btn-cyan px-8 py-4 text-base font-bold inline-flex"
+              >
+                Получить гайд — 700 руб →
+              </a>
+              <p style={{ fontSize: 14, color: "#6b7b8a", marginTop: 10 }}>Доступ сразу после оплаты. Без подписок. Без автосписаний.</p>
+            </Reveal>
+            <Reveal>
+              <img src={SUCCESS_IMG} alt="Атлет — момент успеха" style={{ width: "100%", height: 480, objectFit: "cover", borderRadius: 16, boxShadow: "0 20px 60px rgba(0,212,255,0.15)" }} />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* NUTRITION */}
+      <section id="nutrition" style={{ padding: "80px 0", background: "#060d14" }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <Reveal className="mb-12">
+            <h2 style={{ fontSize: "clamp(26px,3vw,36px)", fontWeight: 700, marginBottom: 16 }}>
+              Программа без правильного питания — это полработы
+            </h2>
+            <p style={{ fontSize: 17, color: "#9ba8b3", lineHeight: 1.6, maxWidth: 700 }}>
+              Можно идеально тренироваться и не расти. Сила не растёт в зале — она растёт в периоды восстановления. А восстановление — это питание.
+            </p>
+          </Reveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-12">
+            <Reveal>
+              <h3 style={{ fontSize: 22, color: "#00d4ff", marginBottom: 20 }}>Гайд по спортивному питанию для силовых:</h3>
+              <ul style={{ listStyle: "none" }}>
+                {NUTRITION_CHECKLIST.map((item, i) => (
+                  <li key={i} style={{ padding: "10px 0", fontSize: 17 }}>
+                    <span className="checklist-item" />{item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+            <Reveal>
+              <div className="grid grid-cols-2 gap-4">
+                <div style={{ background: "rgba(13,28,40,0.5)", padding: 24, borderRadius: 12, border: "2px solid #ff2d2d", textAlign: "center" }}>
+                  <h4 style={{ color: "#ff2d2d", marginBottom: 16, fontWeight: 700 }}>БЕЗ ПИТАНИЯ</h4>
+                  <div style={{ height: 80, background: "rgba(255,45,45,0.2)", borderRadius: 8 }} />
+                  <p style={{ marginTop: 16, color: "#9ba8b3", fontSize: 14 }}>Тренировки → Плато</p>
                 </div>
-              </RevealSection>
+                <div style={{ background: "rgba(13,28,40,0.5)", padding: 24, borderRadius: 12, border: "2px solid #00ff88", textAlign: "center" }}>
+                  <h4 style={{ color: "#00ff88", marginBottom: 16, fontWeight: 700 }}>С ПИТАНИЕМ</h4>
+                  <div style={{ height: 80, background: "linear-gradient(0deg,#00ff88,rgba(0,255,136,0.1))", borderRadius: 8 }} />
+                  <p style={{ marginTop: 16, color: "#9ba8b3", fontSize: 14 }}>Тренировки → Рост 1ПМ</p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal className="text-center">
+            <p style={{ fontSize: 24, color: "#00d4ff", fontWeight: 600, marginBottom: 32 }}>
+              Один гайд даёт программу. Два гайда — дают систему.
+            </p>
+            <p style={{ fontSize: 24, color: "#e8f4f8", marginBottom: 20 }}>Оба гайда вместе — 1 200 руб.</p>
+            <a
+              href="#pricing"
+              onClick={() => trackEvent("nutrition_cta_click")}
+              className="btn-cyan px-8 py-4 text-base font-bold inline-flex"
+            >
+              Взять оба гайда — 1 200 руб →
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* AI */}
+      <section id="ai" style={{ padding: "80px 0", background: "#0d1c28" }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <Reveal className="text-center mb-4">
+            <h2 style={{ fontSize: "clamp(26px,3vw,36px)", fontWeight: 700 }}>
+              Программа не отвечает на вопросы. Ассистент — отвечает.
+            </h2>
+          </Reveal>
+          <Reveal className="text-center mb-12">
+            <p style={{ fontSize: 19, color: "#9ba8b3", maxWidth: 700, margin: "0 auto" }}>
+              Что делать если пропустил тренировку? Как скорректировать нагрузку если заболело плечо? Что есть если тренировка утром?
+            </p>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {AI_CARDS.map((c, i) => (
+              <Reveal key={i}>
+                <div className="card-hover h-full" style={{ background: "#0d1c28", padding: 32, borderRadius: 16, borderTop: "4px solid #00d4ff", border: "1px solid rgba(0,212,255,0.15)", borderTopWidth: 4 }}>
+                  <div style={{ fontSize: 44, marginBottom: 16 }}>{c.icon}</div>
+                  <h4 style={{ color: "#00d4ff", marginBottom: 12, fontSize: 18, fontWeight: 700 }}>{c.title}</h4>
+                  <p style={{ color: "#9ba8b3", fontSize: 15, lineHeight: 1.6 }}>{c.text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <div style={{ maxWidth: 400, margin: "0 auto", background: "#0d1c28", borderRadius: 24, padding: 24, boxShadow: "0 20px 60px rgba(0,0,0,0.5)", border: "1px solid rgba(0,212,255,0.2)" }}>
+              <div style={{ background: "rgba(0,212,255,0.15)", padding: 16, borderRadius: 12, marginBottom: 12, textAlign: "right" }}>
+                <p style={{ fontSize: 15 }}><strong>Атлет:</strong> Пропустил вторник, что делать?</p>
+              </div>
+              <div style={{ background: "rgba(0,255,136,0.08)", padding: 16, borderRadius: 12 }}>
+                <p style={{ fontSize: 15 }}><strong>Ассистент:</strong> Сдвинь на четверг. Убери вспомогательные упражнения, веса не трогай. Программа не сломана.</p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <p style={{ textAlign: "center", marginTop: 24, color: "#6b7b8a", fontSize: 14, maxWidth: 600, margin: "24px auto 0" }}>
+              Это не чат-боты с шаблонными ответами. Инструменты заточены под силовой спорт — с пониманием прогрессии, восстановления и питания в реальных условиях.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section id="pricing" style={{ padding: "80px 0", background: "#060d14" }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <Reveal className="text-center mb-12">
+            <h2 style={{ fontSize: "clamp(26px,3vw,40px)", fontWeight: 700 }}>Выбери свой шаг</h2>
+          </Reveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-10">
+            {PRICING.map((p, i) => (
+              <Reveal key={i}>
+                <div
+                  className="card-hover flex flex-col h-full"
+                  style={{
+                    background: p.featured ? "linear-gradient(135deg,rgba(0,212,255,0.1),rgba(0,255,136,0.1))" : "#0d1c28",
+                    padding: "28px 20px",
+                    borderRadius: 16,
+                    border: `2px solid ${p.featured ? "#00d4ff" : "rgba(0,212,255,0.2)"}`,
+                    textAlign: "center",
+                    transform: p.featured ? "scale(1.04)" : undefined,
+                  }}
+                >
+                  <div style={{ fontSize: 44, marginBottom: 14 }}>{p.icon}</div>
+                  <h4 style={{ color: "#00d4ff", marginBottom: 12, fontSize: 18, fontWeight: 700 }}>{p.title}</h4>
+                  <p style={{ color: "#9ba8b3", fontSize: 13, marginBottom: 16, flex: 1 }}>{p.desc}</p>
+                  <div style={{ fontSize: 28, fontWeight: 700, color: "#e8f4f8", marginBottom: 20 }}>{p.price}</div>
+                  <a
+                    href={p.href}
+                    target={p.href.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent("pricing_click", { plan: p.title })}
+                    className="btn-cyan w-full py-3 text-sm font-bold"
+                  >
+                    {p.cta}
+                  </a>
+                  <p style={{ fontSize: 11, color: "#6b7b8a", marginTop: 12, fontStyle: "italic" }}>{p.future}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <p style={{ textAlign: "center", color: "#9ba8b3", fontSize: 17 }}>
+              Не знаешь с чего начать? Начни с бесплатного PDF — найди свою ошибку, потом решишь.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" style={{ padding: "80px 0", background: "#0d1c28" }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <Reveal className="mb-10">
+            <h2 style={{ fontSize: "clamp(26px,3vw,40px)", fontWeight: 700 }}>Часто спрашивают</h2>
+          </Reveal>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            {FAQS.map((f, i) => (
+              <Reveal key={i}>
+                <div style={{ background: "rgba(13,28,40,0.5)", padding: 24, borderRadius: 12, borderLeft: "4px solid #00d4ff" }}>
+                  <h4 style={{ color: "#00d4ff", marginBottom: 10, fontWeight: 700, fontSize: 16 }}>{f.q}</h4>
+                  <p style={{ color: "#9ba8b3", lineHeight: 1.7, fontSize: 15 }}>{f.a}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* TELEGRAM + CONTACTS */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-30" />
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#ff5500] opacity-[0.04] blur-[120px]" />
-        <div className="container mx-auto px-4">
-          <RevealSection className="text-center mb-12">
-            <h2 className="font-heading text-4xl md:text-5xl font-bold uppercase text-white">
-              Присоединяйся<br />
-              <span className="gradient-text">к комьюнити</span>
+      {/* FINAL CTA */}
+      <section id="contact" className="grid-pattern" style={{ padding: "120px 0", background: "#060d14", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 600, height: 600, borderRadius: "50%", background: "#00d4ff", opacity: 0.04, filter: "blur(120px)", pointerEvents: "none" }} />
+        <div className="max-w-4xl mx-auto px-5 text-center" style={{ position: "relative", zIndex: 1 }}>
+          <Reveal>
+            <h2 style={{ fontSize: "clamp(32px,4vw,48px)", fontWeight: 700, marginBottom: 16 }}>
+              Сотка не придёт сама.
             </h2>
-            <p className="font-body text-white/50 mt-4 max-w-xl mx-auto">
-              В Telegram — живые разборы тренировок, ответы на вопросы, мотивация и эксклюзивные материалы
+            <p style={{ fontSize: 26, color: "#9ba8b3", marginBottom: 60 }}>
+              Но с правильной системой она ближе, чем ты думаешь.
             </p>
-          </RevealSection>
 
-          <div className="flex flex-col md:flex-row gap-6 max-w-2xl mx-auto justify-center">
-            <RevealSection>
-              <a
-                href="https://t.me/"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleTgClick}
-                className="btn-fire flex items-center justify-center gap-3 px-8 py-5 rounded-xl text-base w-full md:w-auto"
-              >
-                <span className="flex items-center gap-3">
-                  <Icon name="Send" size={20} />
-                  ОТКРЫТЬ TELEGRAM
-                </span>
-              </a>
-            </RevealSection>
+            <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
+              <div>
+                <h4 style={{ color: "#00d4ff", marginBottom: 10, fontSize: 18, fontWeight: 700 }}>Не готов платить — начни бесплатно:</h4>
+                <p style={{ color: "#9ba8b3", marginBottom: 20 }}>Подпишись на канал и получи PDF с разбором твоих ошибок. Это ни к чему не обязывает.</p>
+                <SubscribeForm source="final_cta" size="large" />
+                <div className="mt-3">
+                  <a
+                    href="https://t.me/zhim_ne_vret"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent("tg_click")}
+                    className="btn-cyan px-8 py-4 text-base font-bold inline-flex mt-3"
+                  >
+                    Получить PDF бесплатно →
+                  </a>
+                </div>
+              </div>
 
-            <RevealSection>
-              <a
-                href="mailto:info@example.com"
-                className="flex items-center justify-center gap-3 px-8 py-5 rounded-xl text-base border border-[#ff5500]/30 text-white/70 hover:border-[#ff5500]/60 hover:text-white transition-all duration-300 w-full md:w-auto font-heading font-semibold tracking-wide"
-              >
-                <Icon name="Mail" size={20} />
-                НАПИСАТЬ НА ПОЧТУ
-              </a>
-            </RevealSection>
-          </div>
+              <div>
+                <h4 style={{ color: "#00d4ff", marginBottom: 10, fontSize: 18, fontWeight: 700 }}>Знаешь чего хочешь — бери и работай:</h4>
+                <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+                  <a
+                    href="https://t.me/zhim_ne_vret"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent("pricing_click", { plan: "Базовый" })}
+                    className="btn-outline px-7 py-4 text-base font-bold"
+                  >
+                    Базовый гайд — 700 руб →
+                  </a>
+                  <a
+                    href="https://t.me/zhim_ne_vret"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent("pricing_click", { plan: "Полная система" })}
+                    className="btn-cyan px-7 py-4 text-base font-bold"
+                  >
+                    Полная система — 3 500 руб →
+                  </a>
+                </div>
+              </div>
 
-          <RevealSection className="mt-12 text-center">
-            <p className="font-body text-white/25 text-xs">
-              © 2024 Спортивный гайд · Все права защищены
+              <div>
+                <h4 style={{ color: "#00d4ff", marginBottom: 10, fontSize: 18, fontWeight: 700 }}>Остались вопросы?</h4>
+                <p style={{ color: "#9ba8b3" }}>
+                  Напиши в Telegram — отвечу лично.{" "}
+                  <a href="https://t.me/zhim_ne_vret" style={{ color: "#00d4ff" }} onClick={() => trackEvent("tg_personal_click")}>@zhim_ne_vret</a>
+                </p>
+              </div>
+            </div>
+
+            <p style={{ marginTop: 60, color: "#6b7b8a", fontSize: 13 }}>
+              © 2024 Жим не врёт · Все права защищены
             </p>
-          </RevealSection>
+          </Reveal>
         </div>
       </section>
     </div>
