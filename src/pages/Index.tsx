@@ -472,13 +472,46 @@ export default function Index() {
         <div className="max-w-6xl mx-auto px-5">
 
           {/* Intro */}
-          <Reveal className="text-center mb-12">
-            <h2 style={{ fontSize: "clamp(26px,3vw,40px)", fontWeight: 700, marginBottom: 20 }}>
-              У программы на бумаге есть один критический минус
-            </h2>
-            <p style={{ fontSize: 19, color: "#9ba8b3", maxWidth: 750, margin: "0 auto" }}>
-              Она не отвечает на вопросы. Она не подстраивается под твою жизнь. Она не знает, что делать, когда что-то пошло не по плану.
-            </p>
+          <Reveal className="mb-16">
+            <div style={{ background: "linear-gradient(135deg, rgba(255,45,45,0.06) 0%, rgba(13,28,40,0.8) 100%)", border: "1px solid rgba(255,45,45,0.2)", borderRadius: 24, padding: "56px 48px", position: "relative", overflow: "hidden" }}>
+              {/* Фоновый акцент */}
+              <div style={{ position: "absolute", top: -60, right: -60, width: 240, height: 240, borderRadius: "50%", background: "#ff2d2d", opacity: 0.06, filter: "blur(60px)", pointerEvents: "none" }} />
+
+              {/* Лейбл */}
+              <div style={{ display: "flex", justifyContent: "center", marginBottom: 28 }}>
+                <span style={{ background: "rgba(255,45,45,0.12)", border: "1px solid rgba(255,45,45,0.35)", color: "#ff2d2d", fontSize: 12, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "6px 18px", borderRadius: 999 }}>
+                  Критическая проблема
+                </span>
+              </div>
+
+              {/* Заголовок */}
+              <h2 style={{ fontSize: "clamp(28px,3.5vw,46px)", fontWeight: 700, textAlign: "center", marginBottom: 40, lineHeight: 1.2 }}>
+                У программы на бумаге<br />
+                есть один <span style={{ color: "#ff2d2d" }}>критический минус</span>
+              </h2>
+
+              {/* Три тезиса */}
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 36 }}>
+                {[
+                  { icon: "❌", text: "Она не отвечает на вопросы" },
+                  { icon: "❌", text: "Она не подстраивается под твою жизнь" },
+                  { icon: "❌", text: "Она не знает, что делать, когда что-то пошло не по плану" },
+                ].map((item, i) => (
+                  <div key={i} style={{ background: "rgba(255,45,45,0.07)", border: "1px solid rgba(255,45,45,0.18)", borderRadius: 14, padding: "20px 22px", display: "flex", alignItems: "flex-start", gap: 12 }}>
+                    <span style={{ fontSize: 18, lineHeight: 1, marginTop: 2, flexShrink: 0 }}>{item.icon}</span>
+                    <p style={{ fontSize: 16, color: "#e8f4f8", lineHeight: 1.55, margin: 0 }}>{item.text}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Вывод */}
+              <div style={{ textAlign: "center", borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: 28 }}>
+                <p style={{ fontSize: 18, color: "#9ba8b3", lineHeight: 1.7, maxWidth: 600, margin: "0 auto" }}>
+                  Программа — это просто <strong style={{ color: "#e8f4f8" }}>бумага</strong>. Жизнь — нет.<br />
+                  Именно здесь большинство и сходят с дистанции.
+                </p>
+              </div>
+            </div>
           </Reveal>
 
           {/* Scenario cards */}
