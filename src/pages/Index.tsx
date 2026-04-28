@@ -457,45 +457,200 @@ export default function Index() {
       {/* AI */}
       <section id="ai" style={{ padding: "80px 0", background: "#0d1c28" }}>
         <div className="max-w-6xl mx-auto px-5">
-          <Reveal className="text-center mb-4">
-            <h2 style={{ fontSize: "clamp(26px,3vw,36px)", fontWeight: 700 }}>
-              Программа не отвечает на вопросы. Ассистент — отвечает.
-            </h2>
-          </Reveal>
+
+          {/* Intro */}
           <Reveal className="text-center mb-12">
-            <p style={{ fontSize: 19, color: "#9ba8b3", maxWidth: 700, margin: "0 auto" }}>
-              Что делать если пропустил тренировку? Как скорректировать нагрузку если заболело плечо? Что есть если тренировка утром?
+            <h2 style={{ fontSize: "clamp(26px,3vw,40px)", fontWeight: 700, marginBottom: 20 }}>
+              У программы на бумаге есть один критический минус
+            </h2>
+            <p style={{ fontSize: 19, color: "#9ba8b3", maxWidth: 750, margin: "0 auto" }}>
+              Она не отвечает на вопросы. Она не подстраивается под твою жизнь. Она не знает, что делать, когда что-то пошло не по плану.
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {AI_CARDS.map((c, i) => (
+          {/* Scenario cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+            {[
+              { icon: "📅", title: "Пропустил тренировку из-за работы", text: "Программа молчит. Не знаешь: пропустить? Сдвинуть? Поменять веса? Гуглишь форумы — там 10 разных советов." },
+              { icon: "🤕", title: "Заболело плечо на 3-й неделе", text: "Программа не видит твою боль. Не знаешь: терпеть? Отдыхать? Менять упражнения? Бросаешь программу или рискуешь травмой." },
+              { icon: "🍽️", title: "Тренировка перенеслась на утро", text: "Программа не знает твоё расписание. Что есть? Когда? Сколько углеводов в 7:00? Импровизируешь на глаз." },
+            ].map((s, i) => (
               <Reveal key={i}>
-                <div className="card-hover h-full" style={{ background: "#0d1c28", padding: 32, borderRadius: 16, borderTop: "4px solid #00d4ff", border: "1px solid rgba(0,212,255,0.15)", borderTopWidth: 4 }}>
-                  <div style={{ fontSize: 44, marginBottom: 16 }}>{c.icon}</div>
-                  <h4 style={{ color: "#00d4ff", marginBottom: 12, fontSize: 18, fontWeight: 700 }}>{c.title}</h4>
-                  <p style={{ color: "#9ba8b3", fontSize: 15, lineHeight: 1.6 }}>{c.text}</p>
+                <div style={{ background: "rgba(255,45,45,0.05)", border: "1px solid rgba(255,45,45,0.2)", borderRadius: 16, padding: 28, height: "100%" }}>
+                  <div style={{ fontSize: 40, marginBottom: 14 }}>{s.icon}</div>
+                  <h4 style={{ color: "#e8f4f8", fontWeight: 700, fontSize: 16, marginBottom: 10 }}>{s.title}</h4>
+                  <p style={{ color: "#9ba8b3", fontSize: 14, lineHeight: 1.7 }}>{s.text}</p>
                 </div>
               </Reveal>
             ))}
           </div>
 
+          {/* Transition */}
           <Reveal>
-            <div style={{ maxWidth: 400, margin: "0 auto", background: "#0d1c28", borderRadius: 24, padding: 24, boxShadow: "0 20px 60px rgba(0,0,0,0.5)", border: "1px solid rgba(0,212,255,0.2)" }}>
-              <div style={{ background: "rgba(0,212,255,0.15)", padding: 16, borderRadius: 12, marginBottom: 12, textAlign: "right" }}>
-                <p style={{ fontSize: 15 }}><strong>Атлет:</strong> Пропустил вторник, что делать?</p>
+            <div style={{ background: "rgba(0,212,255,0.06)", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 16, padding: "28px 36px", textAlign: "center", fontSize: 19, color: "#e8f4f8", lineHeight: 1.7, marginBottom: 64 }}>
+              Именно поэтому <strong style={{ color: "#00d4ff" }}>80% людей бросают программы на 2–3 неделе</strong>. Не потому что слабые. Потому что программа не живая — а жизнь живая.
+            </div>
+          </Reveal>
+
+          {/* Section title */}
+          <Reveal className="text-center mb-4">
+            <h2 style={{ fontSize: "clamp(24px,3vw,36px)", fontWeight: 700 }}>
+              Три AI-ассистента, которые работают как личный тренерский штаб 24/7
+            </h2>
+          </Reveal>
+          <Reveal className="text-center mb-16">
+            <p style={{ fontSize: 17, color: "#9ba8b3", maxWidth: 700, margin: "0 auto" }}>
+              Не чат-боты с шаблонными ответами. Инструменты, которые понимают силовой тренинг, твою программу и твою ситуацию прямо сейчас.
+            </p>
+          </Reveal>
+
+          {/* Assistant 1 */}
+          <Reveal>
+            <div style={{ background: "#0a1520", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 20, padding: "40px", marginBottom: 24 }}>
+              <div style={{ fontSize: 44, marginBottom: 12 }}>💪</div>
+              <h3 style={{ fontSize: 22, fontWeight: 700, color: "#e8f4f8", marginBottom: 20 }}>
+                Ассистент 1: «Жим не врёт» — AI-тренер по жиму лёжа
+              </h3>
+              <h4 style={{ color: "#00d4ff", fontSize: 14, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 14 }}>Что делает:</h4>
+              <ul style={{ listStyle: "none", marginBottom: 28 }}>
+                {[
+                  "Отвечает на любой вопрос по технике жима — в любой момент, без ожидания",
+                  "Корректирует программу если пропустил тренировку, заболел или изменились обстоятельства",
+                  "Подбирает вспомогательные упражнения под твоё слабое место: старт, провал или дожим",
+                  "Объясняет почему вес встал — и что конкретно менять в программе",
+                ].map((item, i) => (
+                  <li key={i} style={{ padding: "8px 0", fontSize: 16, color: "#e8f4f8", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                    <span style={{ color: "#00ff88", marginRight: 10 }}>✔</span>{item}
+                  </li>
+                ))}
+              </ul>
+              <h4 style={{ color: "#00d4ff", fontSize: 14, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 14 }}>Пример диалога:</h4>
+              <div style={{ background: "#060d14", borderRadius: 16, padding: 24, marginBottom: 24 }}>
+                <div style={{ background: "rgba(0,212,255,0.12)", padding: "14px 18px", borderRadius: 12, marginBottom: 10, textAlign: "right" }}>
+                  <p style={{ fontSize: 15 }}><strong>Ты:</strong> Пропустил вторник, сегодня четверг. Что делать?</p>
+                </div>
+                <div style={{ background: "rgba(0,255,136,0.08)", padding: "14px 18px", borderRadius: 12 }}>
+                  <p style={{ fontSize: 15 }}><strong>Ассистент:</strong> Выполни программу вторника сегодня, но убери вспомогательные упражнения. Основной вес не снижай — тело не потеряло силу за 2 дня. Пятницу сдвинь на субботу. Программа не сломана.</p>
+                </div>
               </div>
-              <div style={{ background: "rgba(0,255,136,0.08)", padding: 16, borderRadius: 12 }}>
-                <p style={{ fontSize: 15 }}><strong>Ассистент:</strong> Сдвинь на четверг. Убери вспомогательные упражнения, веса не трогай. Программа не сломана.</p>
+              <div style={{ background: "rgba(0,212,255,0.06)", borderLeft: "4px solid #00d4ff", padding: "16px 20px", borderRadius: "0 12px 12px 0", marginBottom: 16 }}>
+                <p style={{ fontSize: 15, lineHeight: 1.7 }}><strong>Почему это ценно:</strong> Тренер в зале возьмёт за такую консультацию 1500–3000 руб за раз. Здесь тренер у тебя в кармане — столько раз, сколько нужно.</p>
+              </div>
+              <p style={{ color: "#00ff88", fontWeight: 700 }}>Доступ: неограниченный, навсегда. Без подписок.</p>
+            </div>
+          </Reveal>
+
+          {/* Assistant 2 */}
+          <Reveal>
+            <div style={{ background: "#0a1520", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 20, padding: "40px", marginBottom: 24 }}>
+              <div style={{ fontSize: 44, marginBottom: 12 }}>🍖</div>
+              <h3 style={{ fontSize: 22, fontWeight: 700, color: "#e8f4f8", marginBottom: 20 }}>
+                Ассистент 2: «Топливо» — AI по питанию для силовых
+              </h3>
+              <h4 style={{ color: "#00d4ff", fontSize: 14, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 14 }}>Что делает:</h4>
+              <ul style={{ listStyle: "none", marginBottom: 28 }}>
+                {[
+                  "Рассчитывает питание под твой вес, цель и уровень нагрузки",
+                  "Даёт разные схемы на тренировочный день и день отдыха",
+                  "Корректирует рацион если сместилось время тренировки (утро/вечер)",
+                  "Подбирает спортивное питание под бюджет: что реально нужно, а что маркетинг",
+                ].map((item, i) => (
+                  <li key={i} style={{ padding: "8px 0", fontSize: 16, color: "#e8f4f8", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                    <span style={{ color: "#00ff88", marginRight: 10 }}>✔</span>{item}
+                  </li>
+                ))}
+              </ul>
+              <h4 style={{ color: "#00d4ff", fontSize: 14, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 14 }}>Пример диалога:</h4>
+              <div style={{ background: "#060d14", borderRadius: 16, padding: 24, marginBottom: 24 }}>
+                <div style={{ background: "rgba(0,212,255,0.12)", padding: "14px 18px", borderRadius: 12, marginBottom: 10, textAlign: "right" }}>
+                  <p style={{ fontSize: 15 }}><strong>Ты:</strong> Тренировка перенеслась с вечера на 7 утра. Что есть?</p>
+                </div>
+                <div style={{ background: "rgba(0,255,136,0.08)", padding: "14px 18px", borderRadius: 12 }}>
+                  <p style={{ fontSize: 15 }}><strong>Ассистент:</strong> За 1,5 часа до тренировки: овсянка 80 г + банан. Сразу после — протеин 30 г + быстрые углеводы. Полноценный завтрак через 40–60 минут. Не тренируйся натощак — потеряешь силу.</p>
+                </div>
+              </div>
+              <div style={{ background: "rgba(0,212,255,0.06)", borderLeft: "4px solid #00d4ff", padding: "16px 20px", borderRadius: "0 12px 12px 0", marginBottom: 16 }}>
+                <p style={{ fontSize: 15, lineHeight: 1.7 }}><strong>Почему это ценно:</strong> Разовая консультация нутрициолога стоит дороже, чем сам гайд. Здесь ты можешь уточнять питание каждый раз, когда меняется жизнь.</p>
+              </div>
+              <p style={{ color: "#00ff88", fontWeight: 700 }}>Доступ: можно спрашивать каждый день.</p>
+            </div>
+          </Reveal>
+
+          {/* Assistant 3 */}
+          <Reveal>
+            <div style={{ background: "#0a1520", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 20, padding: "40px", marginBottom: 48 }}>
+              <div style={{ fontSize: 44, marginBottom: 12 }}>📋</div>
+              <h3 style={{ fontSize: 22, fontWeight: 700, color: "#e8f4f8", marginBottom: 20 }}>
+                Ассистент 3: «Сборка» — AI-конструктор программ
+              </h3>
+              <h4 style={{ color: "#00d4ff", fontSize: 14, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 14 }}>Что делает:</h4>
+              <ul style={{ listStyle: "none", marginBottom: 28 }}>
+                {[
+                  "Составляет новую программу когда ты выжал 100 кг и хочешь следующую цель",
+                  "Адаптирует план если стало меньше времени (2 тренировки в неделю вместо 3)",
+                  "Собирает программы под другие движения: присед, тяга, армейский жим",
+                  "Перестраивает тренировки если меняется цель: сила, масса, выносливость",
+                ].map((item, i) => (
+                  <li key={i} style={{ padding: "8px 0", fontSize: 16, color: "#e8f4f8", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                    <span style={{ color: "#00ff88", marginRight: 10 }}>✔</span>{item}
+                  </li>
+                ))}
+              </ul>
+              <h4 style={{ color: "#00d4ff", fontSize: 14, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 14 }}>Пример диалога:</h4>
+              <div style={{ background: "#060d14", borderRadius: 16, padding: 24, marginBottom: 24 }}>
+                <div style={{ background: "rgba(0,212,255,0.12)", padding: "14px 18px", borderRadius: 12, marginBottom: 10, textAlign: "right" }}>
+                  <p style={{ fontSize: 15 }}><strong>Ты:</strong> Выжал 100 кг. Хочу 120 кг, но тренируюсь только 2 раза в неделю. Нужен план на 8–10 недель.</p>
+                </div>
+                <div style={{ background: "rgba(0,255,136,0.08)", padding: "14px 18px", borderRadius: 12 }}>
+                  <p style={{ fontSize: 15 }}><strong>Ассистент:</strong> Предлагаю программу на 10 недель, 2 тренировки. Неделя А — тяжёлый жим 5×3 + присед. Неделя B — средний жим 4×6 + тяга. Прогрессия +2,5 кг каждые 2 недели. Могу выгрузить полный план в таблицу.</p>
+                </div>
+              </div>
+              <div style={{ background: "rgba(0,212,255,0.06)", borderLeft: "4px solid #00d4ff", padding: "16px 20px", borderRadius: "0 12px 12px 0" }}>
+                <p style={{ fontSize: 15, lineHeight: 1.7 }}><strong>Почему это ценно:</strong> Ты не привязан к одной программе. Цели меняются — программа меняется вместе с ними. Это инструмент не на 8 недель, а на годы.</p>
               </div>
             </div>
           </Reveal>
 
+          {/* Comparison table */}
           <Reveal>
-            <p style={{ textAlign: "center", marginTop: 24, color: "#6b7b8a", fontSize: 14, maxWidth: 600, margin: "24px auto 0" }}>
-              Это не чат-боты с шаблонными ответами. Инструменты заточены под силовой спорт — с пониманием прогрессии, восстановления и питания в реальных условиях.
-            </p>
+            <div style={{ overflowX: "auto", marginBottom: 48 }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 15 }}>
+                <thead>
+                  <tr>
+                    <th style={{ background: "rgba(255,45,45,0.12)", color: "#ff2d2d", padding: "16px 20px", textAlign: "left", borderRadius: "12px 0 0 0", fontWeight: 700, fontSize: 16 }}>Без ассистентов</th>
+                    <th style={{ background: "rgba(0,255,136,0.10)", color: "#00ff88", padding: "16px 20px", textAlign: "left", borderRadius: "0 12px 0 0", fontWeight: 700, fontSize: 16 }}>С ассистентами</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Вопрос → Google → 10 разных советов → сомнения", "Вопрос → точный ответ за 10 секунд → продолжаешь тренироваться"],
+                    ["Программа не подходит под расписание → бросаешь на 3-й неделе", "Программа подстраивается под твою жизнь → доходишь до конца"],
+                    ["Консультация тренера: 2000 руб за встречу", "Консультации без лимита — каждый день когда нужно"],
+                    ["Переплата за лишний спортпит и ненужные «курсы»", "Понимаешь что действительно работает, экономишь деньги"],
+                  ].map(([bad, good], i) => (
+                    <tr key={i} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                      <td style={{ padding: "16px 20px", color: "#9ba8b3", background: i % 2 === 0 ? "rgba(255,45,45,0.04)" : "rgba(255,45,45,0.02)" }}>{bad}</td>
+                      <td style={{ padding: "16px 20px", color: "#e8f4f8", background: i % 2 === 0 ? "rgba(0,255,136,0.05)" : "rgba(0,255,136,0.03)" }}>{good}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </Reveal>
+
+          {/* Mega message */}
+          <Reveal>
+            <div style={{ textAlign: "center", background: "linear-gradient(135deg,rgba(0,212,255,0.08),rgba(0,255,136,0.06))", border: "1px solid rgba(0,212,255,0.25)", borderRadius: 20, padding: "48px 40px" }}>
+              <p style={{ fontSize: "clamp(22px,2.5vw,32px)", fontWeight: 700, color: "#e8f4f8", lineHeight: 1.5, marginBottom: 20 }}>
+                Программа даёт тебе план на 8 недель.<br />
+                <span style={{ color: "#00d4ff" }}>Ассистенты дают тебе тренера на всю жизнь.</span>
+              </p>
+              <p style={{ fontSize: 17, color: "#9ba8b3", maxWidth: 600, margin: "0 auto" }}>
+                Один вопрос в нужный момент стоит дороже всей программы. А здесь вопросов может быть сколько угодно.
+              </p>
+            </div>
+          </Reveal>
+
         </div>
       </section>
 
