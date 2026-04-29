@@ -122,7 +122,7 @@ function SubscribeForm({ source, size = "normal" }: { source: string; size?: "no
     return (
       <div className="flex items-center gap-3 text-[#00ff88] font-semibold py-3">
         <span>✔</span>
-        <span>Гайд отправлен! Проверь почту и Telegram</span>
+        <span>Гайд отправлен! Проверь почту</span>
       </div>
     );
   }
