@@ -324,6 +324,65 @@ export default function Index() {
         </div>
       </section>
 
+      {/* PROOF */}
+      <section style={{ padding: "80px 0", background: "#0a0f0a" }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <Reveal className="text-center mb-12">
+            <h2 style={{ fontSize: "clamp(24px,3vw,36px)", fontWeight: 700, marginBottom: 8 }}>
+              Это не теория — это личный результат
+            </h2>
+          </Reveal>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <Reveal>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <img
+                  src="https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/bucket/115564d5-e75d-4108-84b9-3cc5710ecf7a.png"
+                  alt="Грамота — 1 место, жим лёжа 100 кг, весовая 75 кг"
+                  style={{ width: "100%", maxWidth: 480, borderRadius: 12, boxShadow: "0 8px 40px rgba(0,212,255,0.15)", border: "1px solid rgba(0,212,255,0.2)" }}
+                />
+                <p style={{ fontSize: 12, color: "#5a6a7a", marginTop: 12, textAlign: "center", lineHeight: 1.5 }}>
+                  Открытый турнир, Владивосток, 22 февраля 2026.<br />
+                  Жим лёжа без экипировки, весовая 75 кг, результат — 100 кг, 1 место
+                </p>
+              </div>
+            </Reveal>
+            <Reveal>
+              <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", height: "100%" }}>
+                <p style={{ fontSize: 18, color: "#e8f4f8", lineHeight: 1.8, marginBottom: 20 }}>
+                  Алексей — любитель, не профессиональный пауэрлифтер. Весовая категория 75 кг, возраст 40+.
+                </p>
+                <p style={{ fontSize: 18, color: "#e8f4f8", lineHeight: 1.8, marginBottom: 20 }}>
+                  В феврале 2026 года на открытом турнире во Владивостоке пожал <span style={{ color: "#00d4ff", fontWeight: 700 }}>100 кг и занял 1 место</span> среди ветеранов М1.
+                </p>
+                <p style={{ fontSize: 18, color: "#9ba8b3", lineHeight: 1.8, marginBottom: 32 }}>
+                  Всё что описано в этих гайдах — это не пересказ чужих программ. Это то, что сработало лично.
+                </p>
+                <div style={{ background: "rgba(0,212,255,0.07)", border: "1px solid rgba(0,212,255,0.25)", borderRadius: 12, padding: "20px 24px" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                      <span style={{ color: "#5a6a7a", fontSize: 14 }}>Возраст</span>
+                      <span style={{ color: "#e8f4f8", fontWeight: 600 }}>40+ (ветеран М1)</span>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                      <span style={{ color: "#5a6a7a", fontSize: 14 }}>Весовая категория</span>
+                      <span style={{ color: "#e8f4f8", fontWeight: 600 }}>75 кг</span>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                      <span style={{ color: "#5a6a7a", fontSize: 14 }}>Результат на турнире</span>
+                      <span style={{ color: "#00ff88", fontWeight: 700 }}>100 кг — 1 место</span>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                      <span style={{ color: "#5a6a7a", fontSize: 14 }}>Организация</span>
+                      <span style={{ color: "#e8f4f8", fontWeight: 600 }}>АНО «НАП»</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* DEAD ZONE */}
       <section style={{ padding: "80px 0", background: "#060d14" }}>
         <div className="max-w-6xl mx-auto px-5">
