@@ -438,7 +438,7 @@ export default function Index() {
               </p>
               <div style={{ background: "rgba(255,45,45,0.08)", border: "2px solid #ff2d2d", padding: "18px 20px", borderRadius: 12, marginBottom: 24 }}>
                 <p style={{ fontSize: 15, lineHeight: 1.6 }}>
-                  <strong>Для кого:</strong> Текущий 1ПМ от 75 до 85 кг.<br />
+                  <strong>Для кого:</strong> Для тех, кто застрял на пути к 100 кг.<br />
                   Ниже — сначала нужна база. Выше — напиши, подберём другой инструмент.
                 </p>
               </div>
