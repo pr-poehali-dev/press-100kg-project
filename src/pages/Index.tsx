@@ -197,7 +197,9 @@ export default function Index() {
           </div>
           {/* Desktop CTA */}
           <a
-            href="#start"
+            href="https://t.me/zhim_coach"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => trackEvent("nav_cta_click")}
             className="btn-cyan px-5 py-2 text-sm font-bold hidden md:inline-flex"
           >
@@ -235,7 +237,9 @@ export default function Index() {
               </a>
             ))}
             <a
-              href="#start"
+              href="https://t.me/zhim_coach"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => { setBurgerOpen(false); trackEvent("nav_cta_click"); }}
               className="btn-cyan px-5 py-3 text-sm font-bold inline-flex mt-4"
               style={{ width: "100%", justifyContent: "center" }}
