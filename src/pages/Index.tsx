@@ -157,6 +157,8 @@ function SubscribeForm({ source, size = "normal" }: { source: string; size?: "no
 }
 
 export default function Index() {
+  const [burgerOpen, setBurgerOpen] = useState(false);
+
   useEffect(() => {
     trackEvent("page_view");
     fetch(API.stats).catch(() => {});
@@ -173,14 +175,55 @@ export default function Index() {
           <div style={{ fontSize: 20, fontWeight: 700, color: "#00d4ff" }}>
             ⚡ <span style={{ color: "#e8f4f8" }}>Жим не врёт</span>
           </div>
+          {/* Desktop CTA */}
           <a
             href="#start"
             onClick={() => trackEvent("nav_cta_click")}
-            className="btn-cyan px-5 py-2 text-sm font-bold"
+            className="btn-cyan px-5 py-2 text-sm font-bold hidden md:inline-flex"
           >
             Начать бесплатно →
           </a>
+          {/* Burger button */}
+          <button
+            className="md:hidden flex flex-col justify-center items-center gap-[5px] w-9 h-9"
+            onClick={() => setBurgerOpen(o => !o)}
+            aria-label="Меню"
+          >
+            <span style={{ display: "block", width: 22, height: 2, background: "#00d4ff", borderRadius: 2, transition: "all 0.25s", transform: burgerOpen ? "translateY(7px) rotate(45deg)" : "none" }} />
+            <span style={{ display: "block", width: 22, height: 2, background: "#00d4ff", borderRadius: 2, transition: "all 0.25s", opacity: burgerOpen ? 0 : 1 }} />
+            <span style={{ display: "block", width: 22, height: 2, background: "#00d4ff", borderRadius: 2, transition: "all 0.25s", transform: burgerOpen ? "translateY(-7px) rotate(-45deg)" : "none" }} />
+          </button>
         </div>
+        {/* Mobile menu */}
+        {burgerOpen && (
+          <div className="md:hidden" style={{ background: "rgba(6,13,20,0.98)", borderTop: "1px solid rgba(0,212,255,0.15)", padding: "16px 20px 20px" }}>
+            {[
+              { href: "#pain", label: "Проблема" },
+              { href: "#start", label: "Бесплатный гайд" },
+              { href: "#guide", label: "Платный гайд" },
+              { href: "#pricing", label: "Цены" },
+              { href: "#faq", label: "Вопросы" },
+              { href: "#contact", label: "Контакт" },
+            ].map(item => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => { setBurgerOpen(false); trackEvent("burger_nav_click"); }}
+                style={{ display: "block", padding: "12px 0", fontSize: 17, fontWeight: 600, color: "#e8f4f8", borderBottom: "1px solid rgba(0,212,255,0.08)", textDecoration: "none" }}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="#start"
+              onClick={() => { setBurgerOpen(false); trackEvent("nav_cta_click"); }}
+              className="btn-cyan px-5 py-3 text-sm font-bold inline-flex mt-4"
+              style={{ width: "100%", justifyContent: "center" }}
+            >
+              Начать бесплатно →
+            </a>
+          </div>
+        )}
       </nav>
 
       {/* HERO */}
