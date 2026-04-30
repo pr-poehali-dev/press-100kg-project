@@ -335,11 +335,13 @@ export default function Index() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <Reveal>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <img
-                  src="https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/bucket/115564d5-e75d-4108-84b9-3cc5710ecf7a.png"
-                  alt="Грамота — 1 место, жим лёжа 100 кг, весовая 75 кг"
-                  style={{ width: "100%", maxWidth: 480, borderRadius: 12, boxShadow: "0 8px 40px rgba(0,212,255,0.15)", border: "1px solid rgba(0,212,255,0.2)" }}
-                />
+                <div style={{ background: "#0d1c28", borderRadius: 16, padding: 16, border: "1px solid rgba(0,212,255,0.25)", boxShadow: "0 0 48px rgba(0,212,255,0.12), 0 8px 40px rgba(0,0,0,0.6)", maxWidth: 480, width: "100%" }}>
+                  <img
+                    src="https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/bucket/115564d5-e75d-4108-84b9-3cc5710ecf7a.png"
+                    alt="Грамота — 1 место, жим лёжа 100 кг, весовая 75 кг"
+                    style={{ width: "100%", borderRadius: 8, display: "block" }}
+                  />
+                </div>
                 <p style={{ fontSize: 12, color: "#5a6a7a", marginTop: 12, textAlign: "center", lineHeight: 1.5 }}>
                   Открытый турнир, Владивосток, 22 февраля 2026.<br />
                   Жим лёжа без экипировки, весовая 75 кг, результат — 100 кг, 1 место
