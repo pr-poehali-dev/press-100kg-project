@@ -136,23 +136,43 @@ function SubscribeForm({ source, size = "normal" }: { source: string; size?: "no
   }
 
   return (
-    <form onSubmit={handleSubmit} className={`flex flex-col sm:flex-row gap-3 ${size === "large" ? "max-w-lg" : "max-w-md"}`}>
-      <input
-        type="email"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="твой@email.ru"
-        className={`sport-input flex-1 px-4 ${size === "large" ? "py-4 text-base" : "py-3 text-sm"}`}
-      />
-      <button
-        type="submit"
-        disabled={loading}
-        className={`btn-cyan font-bold whitespace-nowrap ${size === "large" ? "px-8 py-4 text-base" : "px-6 py-3 text-sm"}`}
+    <div className={`flex flex-col gap-3 ${size === "large" ? "max-w-lg" : "max-w-md"}`}>
+      {/* Главная кнопка — Telegram */}
+      <a
+        href="https://t.me/zhim_coach"
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackEvent("tg_coach_click", { source })}
+        className={`btn-cyan font-bold flex items-center justify-center gap-2 ${size === "large" ? "px-8 py-4 text-base" : "px-6 py-3 text-sm"}`}
       >
-        {loading ? "..." : "Получить гайд →"}
-      </button>
-    </form>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.076 14.05l-2.95-.924c-.642-.204-.657-.642.136-.953l11.57-4.461c.537-.194 1.006.131.832.509z"/>
+        </svg>
+        Написать в Telegram — получить PDF
+      </a>
+      {/* Вторичный способ — email */}
+      <div>
+        <p style={{ fontSize: 13, color: "#6b7b8a", marginBottom: 8 }}>Или оставь email:</p>
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="твой@email.ru"
+            className="sport-input flex-1 px-4 py-2 text-sm"
+          />
+          <button
+            type="submit"
+            disabled={loading}
+            className="px-5 py-2 text-sm font-bold whitespace-nowrap"
+            style={{ background: "transparent", border: "1px solid rgba(0,212,255,0.5)", color: "#00d4ff", borderRadius: 8, cursor: "pointer" }}
+          >
+            {loading ? "..." : "Получить гайд"}
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
 
