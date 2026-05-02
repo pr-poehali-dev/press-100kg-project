@@ -52,10 +52,10 @@ const AI_CARDS = [
 
 const PRICING = [
   { icon: "🎁", title: "Старт", desc: "Гайд «7 ошибок» + канал", price: "0 руб.", cta: "Начать бесплатно →", href: "https://t.me/zhim_ne_vret", future: "«Завтра ты уже знаешь свою ошибку»", featured: false },
-  { icon: "💪", title: "Базовый", desc: "Гайд «100 кг за 8 недель»", price: "700 руб.", cta: "Купить →", href: "#contact", future: "«Завтра у тебя есть план на 8 недель»", featured: false },
-  { icon: "🍖", title: "Сила + Питание", desc: "Гайд по жиму + гайд по питанию", price: "1 200 руб.", cta: "Купить →", href: "#contact", future: "«Завтра работает и тренировка, и восстановление»", featured: false },
-  { icon: "🤖", title: "С тренером", desc: "Оба гайда + AI «Жим не врёт»", price: "2 500 руб.", cta: "Купить →", href: "#contact", future: "«Завтра на любой вопрос есть ответ»", featured: false },
-  { icon: "🔥", title: "Полная система", desc: "Оба гайда + все 3 AI", price: "3 500 руб.", cta: "Купить →", href: "#contact", future: "«Завтра у тебя тренер, нутрициолог и программист в кармане»", featured: true },
+  { icon: "💪", title: "Базовый", desc: "Гайд «100 кг за 8 недель»", price: "700 руб.", cta: "Получить программу →", href: "#contact", future: "«Завтра у тебя есть план на 8 недель»", featured: false },
+  { icon: "🍖", title: "Сила + Питание", desc: "Гайд по жиму + гайд по питанию", price: "1 200 руб.", cta: "Начать жать больше →", href: "#contact", future: "«Завтра работает и тренировка, и восстановление»", featured: false },
+  { icon: "🤖", title: "С тренером", desc: "Оба гайда + AI «Жим не врёт»", price: "2 500 руб.", cta: "Написать в Telegram →", href: "https://t.me/zhim_coach", future: "«Завтра на любой вопрос есть ответ»", featured: false },
+  { icon: "🔥", title: "Полная система", desc: "Оба гайда + все 3 AI", price: "3 500 руб.", cta: "Написать в Telegram →", href: "https://t.me/zhim_coach", future: "«Завтра у тебя тренер, нутрициолог и программист в кармане»", featured: true },
 ];
 
 const FAQS = [
@@ -256,7 +256,7 @@ export default function Index() {
         <div className="max-w-6xl mx-auto px-5 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <Reveal>
-              <h1 style={{ fontSize: "clamp(32px,4vw,48px)", lineHeight: 1.25, marginBottom: 24, fontWeight: 700 }}>
+              <h1 style={{ fontSize: "clamp(36px,5vw,64px)", lineHeight: 1.1, marginBottom: 24, fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.03em" }}>
                 Ты жмёшь одно и то же уже несколько месяцев.<br />
                 <span style={{ color: "#00d4ff" }}>Вес не растёт.</span> И ты начинаешь думать, что это твой потолок.
               </h1>
@@ -301,11 +301,11 @@ export default function Index() {
       </div>
 
       {/* PAIN */}
-      <section id="pain" style={{ padding: "80px 0", background: "#1a0808" }}>
+      <section id="pain" style={{ padding: "80px 0", background: "#060d14" }}>
         <div className="max-w-6xl mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <Reveal>
-              <h2 style={{ fontSize: "clamp(28px,3.5vw,40px)", marginBottom: 32, fontWeight: 700 }}>Это про тебя?</h2>
+              <h2 style={{ fontSize: "clamp(32px,4vw,52px)", marginBottom: 32, fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif" }}>Это про тебя?</h2>
               <ul style={{ listStyle: "none", marginBottom: 32 }}>
                 {PAIN_ITEMS.map((item, i) => (
                   <li key={i} style={{ padding: "14px 0", fontSize: 17, borderBottom: "1px solid rgba(255,45,45,0.15)" }}>
@@ -325,10 +325,10 @@ export default function Index() {
       </section>
 
       {/* PROOF */}
-      <section style={{ padding: "80px 0", background: "#0a0f0a" }}>
+      <section style={{ padding: "80px 0", background: "#0d1c28" }}>
         <div className="max-w-6xl mx-auto px-5">
           <Reveal className="text-center mb-12">
-            <h2 style={{ fontSize: "clamp(24px,3vw,36px)", fontWeight: 700, marginBottom: 8 }}>
+            <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", marginBottom: 8 }}>
               Это не теория — это личный результат
             </h2>
           </Reveal>
@@ -389,7 +389,7 @@ export default function Index() {
       <section style={{ padding: "80px 0", background: "#060d14" }}>
         <div className="max-w-6xl mx-auto px-5">
           <Reveal className="text-center mb-12">
-            <h2 style={{ fontSize: "clamp(28px,3.5vw,40px)", fontWeight: 700, marginBottom: 12 }}>
+            <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", marginBottom: 12 }}>
               Почему 80 кг — самый коварный вес в жиме
             </h2>
           </Reveal>
@@ -451,10 +451,10 @@ export default function Index() {
             <Reveal>
               <div className="float" style={{ maxWidth: 360, margin: "0 auto" }}>
                 <div style={{ background: "#0d1c28", borderRadius: 16, padding: 40, border: "1px solid rgba(0,212,255,0.3)", boxShadow: "0 20px 60px rgba(0,212,255,0.15)", textAlign: "center" }}>
-                  <div style={{ fontSize: 13, color: "#ff2d2d", fontWeight: 700, letterSpacing: "0.2em", marginBottom: 16 }}>БЕСПЛАТНЫЙ ГАЙД</div>
+                  <div style={{ fontSize: 13, color: "#00d4ff", fontWeight: 700, letterSpacing: "0.2em", marginBottom: 16 }}>БЕСПЛАТНЫЙ ГАЙД</div>
                   <div style={{ fontSize: 28, fontWeight: 700, color: "#00d4ff", marginBottom: 8 }}>7 ОШИБОК ЖИМА</div>
                   <div style={{ fontSize: 14, color: "#9ba8b3", marginBottom: 8 }}>КОТОРЫЕ КРАДУТ</div>
-                  <div style={{ fontSize: 48, fontWeight: 700, color: "#ff2d2d" }}>10–20 КГ</div>
+                  <div style={{ fontSize: 48, fontWeight: 700, color: "#00d4ff" }}>10–20 КГ</div>
                 </div>
               </div>
               <div style={{ marginTop: 24, background: "rgba(0,212,255,0.05)", padding: 20, borderRadius: 12, borderLeft: "4px solid #00d4ff" }}>
@@ -467,7 +467,7 @@ export default function Index() {
             </Reveal>
 
             <Reveal>
-              <h2 style={{ fontSize: "clamp(26px,3vw,36px)", fontWeight: 700, marginBottom: 16 }}>
+              <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", marginBottom: 16 }}>
                 Начни бесплатно — найди свою ошибку сегодня
               </h2>
               <h3 style={{ fontSize: 22, color: "#00d4ff", marginBottom: 20 }}>Гайд «7 ошибок жима, которые крадут 10–20 кг»</h3>
@@ -490,18 +490,18 @@ export default function Index() {
       </section>
 
       {/* GUIDE */}
-      <section id="guide" style={{ padding: "80px 0", background: "#081a10" }}>
+      <section id="guide" style={{ padding: "80px 0", background: "#060d14" }}>
         <div className="max-w-6xl mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <Reveal>
-              <h2 style={{ fontSize: "clamp(26px,3vw,36px)", fontWeight: 700, marginBottom: 16 }}>
+              <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", marginBottom: 16 }}>
                 Нашёл ошибку? Теперь нужна система, которая её исправит
               </h2>
               <h3 style={{ fontSize: 22, color: "#00d4ff", marginBottom: 20 }}>Гайд «Жим не врёт: 100 кг за 8 недель»</h3>
               <p style={{ fontSize: 17, color: "#9ba8b3", marginBottom: 24, lineHeight: 1.6 }}>
                 Написан не по учебнику — на основе реального тренировочного процесса. С личным опытом, конкретными цифрами и пониманием того, где именно застревают атлеты на этом отрезке.
               </p>
-              <div style={{ background: "rgba(255,45,45,0.08)", border: "2px solid #ff2d2d", padding: "18px 20px", borderRadius: 12, marginBottom: 24 }}>
+              <div style={{ background: "rgba(26,37,53,0.8)", border: "2px solid #1a2535", padding: "18px 20px", borderRadius: 12, marginBottom: 24 }}>
                 <p style={{ fontSize: 15, lineHeight: 1.6 }}>
                   <strong>Для кого:</strong> Для тех, кто застрял на пути к 100 кг.<br />
                   Ниже — сначала нужна база. Выше — напиши, подберём другой инструмент.
@@ -541,7 +541,7 @@ export default function Index() {
       <section id="nutrition" style={{ padding: "80px 0", background: "#060d14" }}>
         <div className="max-w-6xl mx-auto px-5">
           <Reveal className="mb-12">
-            <h2 style={{ fontSize: "clamp(26px,3vw,36px)", fontWeight: 700, marginBottom: 16 }}>
+            <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", marginBottom: 16 }}>
               Программа без правильного питания — это полработы
             </h2>
             <p style={{ fontSize: 17, color: "#9ba8b3", lineHeight: 1.6, maxWidth: 700 }}>
@@ -562,9 +562,9 @@ export default function Index() {
             </Reveal>
             <Reveal>
               <div className="grid grid-cols-2 gap-4">
-                <div style={{ background: "rgba(13,28,40,0.5)", padding: 24, borderRadius: 12, border: "2px solid #ff2d2d", textAlign: "center" }}>
-                  <h4 style={{ color: "#ff2d2d", marginBottom: 16, fontWeight: 700 }}>БЕЗ ПИТАНИЯ</h4>
-                  <div style={{ height: 80, background: "rgba(255,45,45,0.2)", borderRadius: 8 }} />
+                <div style={{ background: "rgba(13,28,40,0.5)", padding: 24, borderRadius: 12, border: "2px solid #1a2535", textAlign: "center" }}>
+                  <h4 style={{ color: "#8899aa", marginBottom: 16, fontWeight: 700 }}>БЕЗ ПИТАНИЯ</h4>
+                  <div style={{ height: 80, background: "rgba(136,153,170,0.15)", borderRadius: 8 }} />
                   <p style={{ marginTop: 16, color: "#9ba8b3", fontSize: 14 }}>Тренировки → Плато</p>
                 </div>
                 <div style={{ background: "rgba(13,28,40,0.5)", padding: 24, borderRadius: 12, border: "2px solid #00ff88", textAlign: "center" }}>
@@ -598,21 +598,21 @@ export default function Index() {
 
           {/* Intro */}
           <Reveal className="mb-16">
-            <div style={{ background: "linear-gradient(135deg, rgba(255,45,45,0.06) 0%, rgba(13,28,40,0.8) 100%)", border: "1px solid rgba(255,45,45,0.2)", borderRadius: 24, padding: "56px 48px", position: "relative", overflow: "hidden" }}>
+            <div style={{ background: "linear-gradient(135deg, rgba(13,28,40,0.9) 0%, rgba(6,13,20,1) 100%)", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 24, padding: "56px 48px", position: "relative", overflow: "hidden" }}>
               {/* Фоновый акцент */}
-              <div style={{ position: "absolute", top: -60, right: -60, width: 240, height: 240, borderRadius: "50%", background: "#ff2d2d", opacity: 0.06, filter: "blur(60px)", pointerEvents: "none" }} />
+              <div style={{ position: "absolute", top: -60, right: -60, width: 240, height: 240, borderRadius: "50%", background: "#00d4ff", opacity: 0.04, filter: "blur(60px)", pointerEvents: "none" }} />
 
               {/* Лейбл */}
               <div style={{ display: "flex", justifyContent: "center", marginBottom: 28 }}>
-                <span style={{ background: "rgba(255,45,45,0.12)", border: "1px solid rgba(255,45,45,0.35)", color: "#ff2d2d", fontSize: 12, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "6px 18px", borderRadius: 999 }}>
+                <span style={{ background: "rgba(0,212,255,0.1)", border: "1px solid rgba(0,212,255,0.3)", color: "#00d4ff", fontSize: 12, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "6px 18px", borderRadius: 999 }}>
                   Критическая проблема
                 </span>
               </div>
 
               {/* Заголовок */}
-              <h2 style={{ fontSize: "clamp(28px,3.5vw,46px)", fontWeight: 700, textAlign: "center", marginBottom: 40, lineHeight: 1.2 }}>
+              <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", textAlign: "center", marginBottom: 40, lineHeight: 1.1 }}>
                 У программы на бумаге<br />
-                есть один <span style={{ color: "#ff2d2d" }}>критический минус</span>
+                есть один <span style={{ color: "#00d4ff" }}>критический минус</span>
               </h2>
 
               {/* Три тезиса */}
@@ -622,7 +622,7 @@ export default function Index() {
                   { icon: "❌", text: "Она не подстраивается под твою жизнь" },
                   { icon: "❌", text: "Она не знает, что делать, когда что-то пошло не по плану" },
                 ].map((item, i) => (
-                  <div key={i} style={{ background: "rgba(255,45,45,0.07)", border: "1px solid rgba(255,45,45,0.18)", borderRadius: 14, padding: "20px 22px", display: "flex", alignItems: "flex-start", gap: 12 }}>
+                  <div key={i} style={{ background: "rgba(13,28,40,0.6)", border: "1px solid rgba(0,212,255,0.15)", borderRadius: 14, padding: "20px 22px", display: "flex", alignItems: "flex-start", gap: 12 }}>
                     <span style={{ fontSize: 18, lineHeight: 1, marginTop: 2, flexShrink: 0 }}>{item.icon}</span>
                     <p style={{ fontSize: 16, color: "#e8f4f8", lineHeight: 1.55, margin: 0 }}>{item.text}</p>
                   </div>
@@ -647,7 +647,7 @@ export default function Index() {
               { icon: "🍽️", title: "Тренировка перенеслась на утро", text: "Программа не знает твоё расписание. Что есть? Когда? Сколько углеводов в 7:00? Импровизируешь на глаз." },
             ].map((s, i) => (
               <Reveal key={i}>
-                <div style={{ background: "rgba(255,45,45,0.05)", border: "1px solid rgba(255,45,45,0.2)", borderRadius: 16, padding: 28, height: "100%" }}>
+                <div style={{ background: "rgba(13,28,40,0.5)", border: "1px solid rgba(0,212,255,0.15)", borderRadius: 16, padding: 28, height: "100%" }}>
                   <div style={{ fontSize: 40, marginBottom: 14 }}>{s.icon}</div>
                   <h4 style={{ color: "#e8f4f8", fontWeight: 700, fontSize: 16, marginBottom: 10 }}>{s.title}</h4>
                   <p style={{ color: "#9ba8b3", fontSize: 14, lineHeight: 1.7 }}>{s.text}</p>
@@ -665,7 +665,7 @@ export default function Index() {
 
           {/* Section title */}
           <Reveal className="text-center mb-4">
-            <h2 style={{ fontSize: "clamp(24px,3vw,36px)", fontWeight: 700 }}>
+            <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif" }}>
               Три AI-ассистента, которые работают как личный тренерский штаб 24/7
             </h2>
           </Reveal>
@@ -832,7 +832,7 @@ export default function Index() {
       <section id="pricing" style={{ padding: "80px 0", background: "#060d14" }}>
         <div className="max-w-6xl mx-auto px-5">
           <Reveal className="text-center mb-12">
-            <h2 style={{ fontSize: "clamp(26px,3vw,40px)", fontWeight: 700 }}>Выбери свой шаг</h2>
+            <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif" }}>Выбери свой шаг</h2>
           </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-10">
@@ -869,8 +869,11 @@ export default function Index() {
           </div>
 
           <Reveal>
-            <p style={{ textAlign: "center", color: "#9ba8b3", fontSize: 17 }}>
+            <p style={{ textAlign: "center", color: "#9ba8b3", fontSize: 17, marginBottom: 16 }}>
               Не знаешь с чего начать? Начни с бесплатного PDF — найди свою ошибку, потом решишь.
+            </p>
+            <p style={{ textAlign: "center", fontSize: 14, color: "#5a6a7a" }}>
+              Если материал не подошёл — напиши в Telegram, разберём ситуацию или вернём деньги.
             </p>
           </Reveal>
         </div>
@@ -880,7 +883,7 @@ export default function Index() {
       <section id="faq" style={{ padding: "80px 0", background: "#0d1c28" }}>
         <div className="max-w-6xl mx-auto px-5">
           <Reveal className="mb-10">
-            <h2 style={{ fontSize: "clamp(26px,3vw,40px)", fontWeight: 700 }}>Часто спрашивают</h2>
+            <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif" }}>Часто спрашивают</h2>
           </Reveal>
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {FAQS.map((f, i) => (
@@ -900,7 +903,7 @@ export default function Index() {
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 600, height: 600, borderRadius: "50%", background: "#00d4ff", opacity: 0.04, filter: "blur(120px)", pointerEvents: "none" }} />
         <div className="max-w-4xl mx-auto px-5 text-center" style={{ position: "relative", zIndex: 1 }}>
           <Reveal>
-            <h2 style={{ fontSize: "clamp(32px,4vw,48px)", fontWeight: 700, marginBottom: 16 }}>
+            <h2 style={{ fontSize: "clamp(40px,5vw,72px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", marginBottom: 16 }}>
               Сотка не придёт сама.
             </h2>
             <p style={{ fontSize: 26, color: "#9ba8b3", marginBottom: 60 }}>
