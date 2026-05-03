@@ -51,8 +51,8 @@ const AI_CARDS = [
 ];
 
 const PRICING = [
-  { icon: "💪", title: "Базовый", desc: "Гайд «100 кг за 8 недель»", price: "700 руб.", oldPrice: null, cta: "Получить программу →", href: "#contact", future: "«Завтра у тебя есть план на 8 недель»", featured: false, code: null },
-  { icon: "🍖", title: "Сила + Питание", desc: "Гайд по жиму + гайд по питанию для силового роста. Ешь так, чтобы прогресс не останавливался.", price: "1 200 руб.", oldPrice: null, cta: "Начать жать больше →", href: "#contact", future: "«Завтра у тебя план и для зала, и для кухни»", featured: false, code: null },
+  { icon: "💪", title: "Базовый", desc: "Гайд «100 кг за 8 недель»", price: "700 руб.", oldPrice: null, cta: "Получить программу →", href: "https://t.me/zhim_coach", future: "«Завтра у тебя есть план на 8 недель»", featured: false, code: null },
+  { icon: "🍖", title: "Сила + Питание", desc: "Гайд по жиму + гайд по питанию для силового роста. Ешь так, чтобы прогресс не останавливался.", price: "1 200 руб.", oldPrice: null, cta: "Начать жать больше →", href: "https://t.me/zhim_coach", future: "«Завтра у тебя план и для зала, и для кухни»", featured: false, code: null },
   { icon: "🤖", title: "С тренером", desc: "Оба гайда + AI «Жим не врёт»", price: "2 500 руб.", oldPrice: null, cta: "Купить за 2 500 руб →", href: "https://t.me/zhim_coach", future: "«Завтра на любой вопрос есть ответ»", featured: false, code: null },
   { icon: "🔥", title: "Полная система", desc: "Оба гайда + все 3 AI", price: "3 500 руб.", oldPrice: "4 400 руб.", cta: "Купить за 3 500 руб →", href: "https://t.me/zhim_coach", future: "«Завтра у тебя тренер, нутрициолог и программист в кармане»", featured: true, code: null },
 ];
