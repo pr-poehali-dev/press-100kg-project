@@ -1,6 +1,7 @@
 import json
 import os
 import psycopg2
+import resend
 
 CORS = {
     "Access-Control-Allow-Origin": "*",
@@ -8,8 +9,23 @@ CORS = {
     "Access-Control-Allow-Headers": "Content-Type",
 }
 
+OWNER_EMAIL = "fil3241@gmail.com"
+
+def send_notification(email: str, source: str):
+    resend.api_key = os.environ["RESEND_API_KEY"]
+    resend.Emails.send({
+        "from": "onboarding@resend.dev",
+        "to": OWNER_EMAIL,
+        "subject": "Новая заявка на гайд",
+        "html": f"""
+        <h2>Новая заявка с сайта «Жим не врёт»</h2>
+        <p><b>Email покупателя:</b> {email}</p>
+        <p><b>Источник:</b> {source}</p>
+        """,
+    })
+
 def handler(event: dict, context) -> dict:
-    """Сохраняет email подписчика и фиксирует событие подписки."""
+    """Сохраняет email подписчика, отправляет уведомление владельцу."""
     if event.get("httpMethod") == "OPTIONS":
         return {"statusCode": 200, "headers": CORS, "body": ""}
 
@@ -34,5 +50,10 @@ def handler(event: dict, context) -> dict:
     conn.commit()
     cur.close()
     conn.close()
+
+    try:
+        send_notification(email, source)
+    except Exception:
+        pass
 
     return {"statusCode": 200, "headers": CORS, "body": json.dumps({"ok": True})}
