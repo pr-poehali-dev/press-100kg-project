@@ -250,23 +250,23 @@ export default function Index() {
       </nav>
 
       {/* HERO */}
-      <section className="grid-pattern" style={{ minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: 100, paddingBottom: 80, position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "30%", left: "50%", transform: "translateX(-50%)", width: 700, height: 700, borderRadius: "50%", background: "#00d4ff", opacity: 0.04, filter: "blur(120px)", pointerEvents: "none" }} />
-        <div className="max-w-6xl mx-auto px-5 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="grid-pattern" style={{ minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: 80, paddingBottom: 60, position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "30%", left: "50%", transform: "translateX(-50%)", width: "min(700px, 100vw)", height: "min(700px, 100vw)", borderRadius: "50%", background: "#00d4ff", opacity: 0.04, filter: "blur(120px)", pointerEvents: "none" }} />
+        <div className="max-w-6xl mx-auto px-4 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <Reveal>
-              <h1 style={{ fontSize: "clamp(36px,5vw,64px)", lineHeight: 1.1, marginBottom: 24, fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.03em" }}>
+              <h1 style={{ fontSize: "clamp(32px,5vw,64px)", lineHeight: 1.1, marginBottom: 16, fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.03em" }}>
                 Ты жмёшь одно и то же уже несколько месяцев.<br />
                 <span style={{ color: "#00d4ff" }}>Вес не растёт.</span> И ты начинаешь думать, что это твой потолок.
               </h1>
-              <p style={{ fontSize: 20, color: "#9ba8b3", marginBottom: 32, lineHeight: 1.6 }}>
+              <p style={{ fontSize: "clamp(16px,2.5vw,20px)", color: "#9ba8b3", marginBottom: 20, lineHeight: 1.6 }}>
                 Это не потолок. Это одна из семи ошибок, которые совершает каждый второй атлет на отрезке 75–95 кг. Найди свою — бесплатно — прямо сейчас.
               </p>
 
-              <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 32, padding: 20, background: "rgba(0,212,255,0.05)", borderRadius: 12, border: "1px solid rgba(0,212,255,0.2)" }}>
-                <div className="float" style={{ width: 110, height: 110, borderRadius: "50%", background: "linear-gradient(145deg,#1a2633,#0d1520)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, fontWeight: 700, color: "#00d4ff", flexShrink: 0 }}>80 кг</div>
-                <div style={{ fontSize: 32, color: "#00d4ff" }}>→</div>
-                <div className="pulse-cyan" style={{ width: 110, height: 110, borderRadius: "50%", background: "linear-gradient(145deg,#1a2633,#0d1520)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, fontWeight: 700, color: "#00d4ff", flexShrink: 0 }}>100 кг</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20, padding: 16, background: "rgba(0,212,255,0.05)", borderRadius: 12, border: "1px solid rgba(0,212,255,0.2)", flexWrap: "wrap" }}>
+                <div className="float" style={{ width: "clamp(80px,15vw,110px)", height: "clamp(80px,15vw,110px)", borderRadius: "50%", background: "linear-gradient(145deg,#1a2633,#0d1520)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "clamp(16px,3vw,22px)", fontWeight: 700, color: "#00d4ff", flexShrink: 0 }}>80 кг</div>
+                <div style={{ fontSize: "clamp(22px,4vw,32px)", color: "#00d4ff" }}>→</div>
+                <div className="pulse-cyan" style={{ width: "clamp(80px,15vw,110px)", height: "clamp(80px,15vw,110px)", borderRadius: "50%", background: "linear-gradient(145deg,#1a2633,#0d1520)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "clamp(16px,3vw,22px)", fontWeight: 700, color: "#00d4ff", flexShrink: 0 }}>100 кг</div>
                 <div style={{ fontSize: 13, color: "#9ba8b3" }}>одна<br />ошибка</div>
               </div>
 
@@ -300,48 +300,48 @@ export default function Index() {
       </div>
 
       {/* PAIN */}
-      <section id="pain" style={{ padding: "80px 0", background: "#060d14" }}>
-        <div className="max-w-6xl mx-auto px-5">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section id="pain" style={{ padding: "60px 0", background: "#060d14" }}>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <Reveal>
-              <h2 style={{ fontSize: "clamp(32px,4vw,52px)", marginBottom: 32, fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif" }}>Это про тебя?</h2>
-              <ul style={{ listStyle: "none", marginBottom: 32 }}>
+              <h2 style={{ fontSize: "clamp(32px,4vw,52px)", marginBottom: 20, fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif" }}>Это про тебя?</h2>
+              <ul style={{ listStyle: "none", marginBottom: 20 }}>
                 {PAIN_ITEMS.map((item, i) => (
-                  <li key={i} style={{ padding: "14px 0", fontSize: 17, borderBottom: "1px solid rgba(255,45,45,0.15)" }}>
+                  <li key={i} style={{ padding: "10px 0", fontSize: "clamp(15px,2vw,17px)", borderBottom: "1px solid rgba(255,45,45,0.15)" }}>
                     <span className="pain-item" />{item}
                   </li>
                 ))}
               </ul>
-              <p style={{ fontSize: 18, color: "#9ba8b3", lineHeight: 1.7 }}>
+              <p style={{ fontSize: "clamp(15px,2vw,18px)", color: "#9ba8b3", lineHeight: 1.7 }}>
                 Ни одна из этих проблем не решается силой воли или «просто больше тренироваться». Каждая — <span style={{ color: "#00d4ff", fontWeight: 600 }}>технический сбой в системе</span>. И у каждой есть конкретное решение.
               </p>
             </Reveal>
             <Reveal>
-              <img src={PAIN_IMG} alt="Момент провала" style={{ width: "100%", height: 480, objectFit: "cover", borderRadius: 16, filter: "grayscale(20%)" }} />
+              <img src={PAIN_IMG} alt="Момент провала" style={{ width: "100%", height: "clamp(260px,50vw,480px)", objectFit: "cover", borderRadius: 16, filter: "grayscale(20%)" }} />
             </Reveal>
           </div>
         </div>
       </section>
 
       {/* PROOF */}
-      <section style={{ padding: "80px 0", background: "#0d1c28" }}>
-        <div className="max-w-6xl mx-auto px-5">
-          <Reveal className="text-center mb-12">
+      <section style={{ padding: "60px 0", background: "#0d1c28" }}>
+        <div className="max-w-6xl mx-auto px-4">
+          <Reveal className="text-center mb-8">
             <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", marginBottom: 8 }}>
               Это не теория — это личный результат
             </h2>
           </Reveal>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             <Reveal>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <div style={{ background: "#0d1c28", borderRadius: 16, padding: 28, border: "1px solid rgba(0,212,255,0.25)", boxShadow: "0 0 48px rgba(0,212,255,0.12), 0 8px 40px rgba(0,0,0,0.6)", maxWidth: 480, width: "100%", overflow: "hidden" }}>
+                <div style={{ background: "#0d1c28", borderRadius: 16, padding: "clamp(16px,4vw,28px)", border: "1px solid rgba(0,212,255,0.25)", boxShadow: "0 0 48px rgba(0,212,255,0.12), 0 8px 40px rgba(0,0,0,0.6)", maxWidth: 480, width: "100%", overflow: "hidden" }}>
                   <img
                     src="https://cdn.poehali.dev/projects/3b53b863-fac0-442c-a544-4014362ff5fc/bucket/115564d5-e75d-4108-84b9-3cc5710ecf7a.png"
                     alt="Грамота — 1 место, жим лёжа 100 кг, весовая 75 кг"
                     style={{ width: "100%", borderRadius: 8, display: "block", transform: "scale(1.07)", transformOrigin: "center" }}
                   />
                 </div>
-                <p style={{ fontSize: 12, color: "#5a6a7a", marginTop: 12, textAlign: "center", lineHeight: 1.5 }}>
+                <p style={{ fontSize: 13, color: "#5a6a7a", marginTop: 12, textAlign: "center", lineHeight: 1.5 }}>
                   Открытый турнир, Владивосток, 22 февраля 2026.<br />
                   Жим лёжа без экипировки, весовая 75 кг, результат — 100 кг, 1 место
                 </p>
@@ -349,30 +349,30 @@ export default function Index() {
             </Reveal>
             <Reveal>
               <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", height: "100%" }}>
-                <p style={{ fontSize: 18, color: "#e8f4f8", lineHeight: 1.8, marginBottom: 20 }}>
+                <p style={{ fontSize: "clamp(15px,2vw,18px)", color: "#e8f4f8", lineHeight: 1.8, marginBottom: 16 }}>
                   Алексей — любитель, не профессиональный пауэрлифтер. Весовая категория 75 кг, возраст 40+.
                 </p>
-                <p style={{ fontSize: 18, color: "#e8f4f8", lineHeight: 1.8, marginBottom: 20 }}>
+                <p style={{ fontSize: "clamp(15px,2vw,18px)", color: "#e8f4f8", lineHeight: 1.8, marginBottom: 16 }}>
                   В феврале 2026 года на открытом турнире во Владивостоке пожал <span style={{ color: "#00d4ff", fontWeight: 700 }}>100 кг и занял 1 место</span> среди ветеранов М1.
                 </p>
-                <p style={{ fontSize: 18, color: "#9ba8b3", lineHeight: 1.8, marginBottom: 32 }}>
+                <p style={{ fontSize: "clamp(15px,2vw,18px)", color: "#9ba8b3", lineHeight: 1.8, marginBottom: 20 }}>
                   Всё что описано в этих гайдах — это не пересказ чужих программ. Это то, что сработало лично.
                 </p>
-                <div style={{ background: "rgba(0,212,255,0.07)", border: "1px solid rgba(0,212,255,0.25)", borderRadius: 12, padding: "20px 24px" }}>
+                <div style={{ background: "rgba(0,212,255,0.07)", border: "1px solid rgba(0,212,255,0.25)", borderRadius: 12, padding: "16px 20px" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 4 }}>
                       <span style={{ color: "#5a6a7a", fontSize: 14 }}>Возраст</span>
                       <span style={{ color: "#e8f4f8", fontWeight: 600 }}>40+ (ветеран М1)</span>
                     </div>
-                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 4 }}>
                       <span style={{ color: "#5a6a7a", fontSize: 14 }}>Весовая категория</span>
                       <span style={{ color: "#e8f4f8", fontWeight: 600 }}>75 кг</span>
                     </div>
-                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 4 }}>
                       <span style={{ color: "#5a6a7a", fontSize: 14 }}>Результат на турнире</span>
                       <span style={{ color: "#00ff88", fontWeight: 700 }}>100 кг — 1 место</span>
                     </div>
-                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 4 }}>
                       <span style={{ color: "#5a6a7a", fontSize: 14 }}>Организация</span>
                       <span style={{ color: "#e8f4f8", fontWeight: 600 }}>АНО «НАП»</span>
                     </div>
@@ -385,16 +385,16 @@ export default function Index() {
       </section>
 
       {/* DEAD ZONE */}
-      <section style={{ padding: "80px 0", background: "#060d14" }}>
-        <div className="max-w-6xl mx-auto px-5">
-          <Reveal className="text-center mb-12">
+      <section style={{ padding: "60px 0", background: "#060d14" }}>
+        <div className="max-w-6xl mx-auto px-4">
+          <Reveal className="text-center mb-8">
             <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", marginBottom: 12 }}>
               Почему 80 кг — самый коварный вес в жиме
             </h2>
           </Reveal>
 
           <Reveal>
-            <div style={{ background: "rgba(13,28,40,0.5)", padding: "36px", borderRadius: 16, marginBottom: 32, border: "1px solid rgba(0,212,255,0.2)" }}>
+            <div style={{ background: "rgba(13,28,40,0.5)", padding: "clamp(16px,4vw,36px)", borderRadius: 16, marginBottom: 24, border: "1px solid rgba(0,212,255,0.2)" }}>
               <div className="scale-bar mb-5" />
               <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
                 {[
@@ -413,7 +413,7 @@ export default function Index() {
           </Reveal>
 
           <Reveal>
-            <div style={{ background: "rgba(13,28,40,0.8)", padding: 24, borderRadius: 12, borderLeft: "4px solid #ff2d2d", marginBottom: 32 }}>
+            <div style={{ background: "rgba(13,28,40,0.8)", padding: "clamp(14px,3vw,24px)", borderRadius: 12, borderLeft: "4px solid #ff2d2d", marginBottom: 20 }}>
               <p style={{ fontSize: 16, lineHeight: 1.7 }}>
                 <strong>Анатомия проблемы:</strong> При весе 80+ кг в жиме критически включаются передняя дельта и трицепс. Именно они начинают отказывать первыми — и это невидимо при внешнем наблюдении.
               </p>
@@ -436,7 +436,7 @@ export default function Index() {
           </div>
 
           <Reveal>
-            <p style={{ fontSize: 26, color: "#00d4ff", textAlign: "center", fontWeight: 600 }}>
+            <p style={{ fontSize: "clamp(18px,4vw,26px)", color: "#00d4ff", textAlign: "center", fontWeight: 600 }}>
               Тебе не нужна мотивация. Тебе нужна другая система.
             </p>
           </Reveal>
@@ -444,16 +444,16 @@ export default function Index() {
       </section>
 
       {/* PDF OFFER */}
-      <section id="start" style={{ padding: "80px 0", background: "#0d1c28" }}>
-        <div className="max-w-6xl mx-auto px-5">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section id="start" style={{ padding: "60px 0", background: "#0d1c28" }}>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <Reveal>
               <div className="float" style={{ maxWidth: 360, margin: "0 auto" }}>
-                <div style={{ background: "#0d1c28", borderRadius: 16, padding: 40, border: "1px solid rgba(0,212,255,0.3)", boxShadow: "0 20px 60px rgba(0,212,255,0.15)", textAlign: "center" }}>
-                  <div style={{ fontSize: 13, color: "#00d4ff", fontWeight: 700, letterSpacing: "0.2em", marginBottom: 16 }}>БЕСПЛАТНЫЙ ГАЙД</div>
-                  <div style={{ fontSize: 28, fontWeight: 700, color: "#00d4ff", marginBottom: 8 }}>7 ОШИБОК ЖИМА</div>
+                <div style={{ background: "#0d1c28", borderRadius: 16, padding: "clamp(20px,5vw,40px)", border: "1px solid rgba(0,212,255,0.3)", boxShadow: "0 20px 60px rgba(0,212,255,0.15)", textAlign: "center" }}>
+                  <div style={{ fontSize: 13, color: "#00d4ff", fontWeight: 700, letterSpacing: "0.2em", marginBottom: 12 }}>БЕСПЛАТНЫЙ ГАЙД</div>
+                  <div style={{ fontSize: "clamp(20px,4vw,28px)", fontWeight: 700, color: "#00d4ff", marginBottom: 8 }}>7 ОШИБОК ЖИМА</div>
                   <div style={{ fontSize: 14, color: "#9ba8b3", marginBottom: 8 }}>КОТОРЫЕ КРАДУТ</div>
-                  <div style={{ fontSize: 48, fontWeight: 700, color: "#00d4ff" }}>10–20 КГ</div>
+                  <div style={{ fontSize: "clamp(32px,7vw,48px)", fontWeight: 700, color: "#00d4ff" }}>10–20 КГ</div>
                 </div>
               </div>
               <div style={{ marginTop: 24, background: "rgba(0,212,255,0.05)", padding: 20, borderRadius: 12, borderLeft: "4px solid #00d4ff" }}>
@@ -480,7 +480,7 @@ export default function Index() {
                   </li>
                 ))}
               </ul>
-              <p style={{ fontSize: 24, color: "#00ff88", marginBottom: 24, fontWeight: 600 }}>Это бесплатно.</p>
+              <p style={{ fontSize: "clamp(18px,3vw,24px)", color: "#00ff88", marginBottom: 20, fontWeight: 600 }}>Это бесплатно.</p>
               <SubscribeForm source="pdf_section" size="large" />
 
             </Reveal>
@@ -489,9 +489,9 @@ export default function Index() {
       </section>
 
       {/* GUIDE */}
-      <section id="guide" style={{ padding: "80px 0", background: "#060d14" }}>
-        <div className="max-w-6xl mx-auto px-5">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section id="guide" style={{ padding: "60px 0", background: "#060d14" }}>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <Reveal>
               <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", marginBottom: 16 }}>
                 Нашёл ошибку? Теперь нужна система, которая её исправит
@@ -530,16 +530,16 @@ export default function Index() {
               <p style={{ fontSize: 14, color: "#6b7b8a", marginTop: 10 }}>Доступ сразу после оплаты. Без подписок. Без автосписаний.</p>
             </Reveal>
             <Reveal>
-              <img src={SUCCESS_IMG} alt="Атлет — момент успеха" style={{ width: "100%", height: 480, objectFit: "cover", borderRadius: 16, boxShadow: "0 20px 60px rgba(0,212,255,0.15)" }} />
+              <img src={SUCCESS_IMG} alt="Атлет — момент успеха" style={{ width: "100%", height: "clamp(260px,50vw,480px)", objectFit: "cover", borderRadius: 16, boxShadow: "0 20px 60px rgba(0,212,255,0.15)" }} />
             </Reveal>
           </div>
         </div>
       </section>
 
       {/* NUTRITION */}
-      <section id="nutrition" style={{ padding: "80px 0", background: "#060d14" }}>
-        <div className="max-w-6xl mx-auto px-5">
-          <Reveal className="mb-12">
+      <section id="nutrition" style={{ padding: "60px 0", background: "#060d14" }}>
+        <div className="max-w-6xl mx-auto px-4">
+          <Reveal className="mb-8">
             <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", marginBottom: 16 }}>
               Программа без правильного питания — это полработы
             </h2>
@@ -548,12 +548,12 @@ export default function Index() {
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start mb-8">
             <Reveal>
-              <h3 style={{ fontSize: 22, color: "#00d4ff", marginBottom: 20 }}>Гайд по спортивному питанию для силовых:</h3>
+              <h3 style={{ fontSize: "clamp(18px,3vw,22px)", color: "#00d4ff", marginBottom: 16 }}>Гайд по спортивному питанию для силовых:</h3>
               <ul style={{ listStyle: "none" }}>
                 {NUTRITION_CHECKLIST.map((item, i) => (
-                  <li key={i} style={{ padding: "10px 0", fontSize: 17 }}>
+                  <li key={i} style={{ padding: "10px 0", fontSize: "clamp(15px,2vw,17px)" }}>
                     <span className="checklist-item" />{item}
                   </li>
                 ))}
@@ -576,10 +576,10 @@ export default function Index() {
           </div>
 
           <Reveal className="text-center">
-            <p style={{ fontSize: 24, color: "#00d4ff", fontWeight: 600, marginBottom: 32 }}>
+            <p style={{ fontSize: "clamp(18px,3vw,24px)", color: "#00d4ff", fontWeight: 600, marginBottom: 16 }}>
               Один гайд даёт программу. Два гайда — дают систему.
             </p>
-            <p style={{ fontSize: 24, color: "#e8f4f8", marginBottom: 20 }}>Оба гайда вместе — 1 200 руб.</p>
+            <p style={{ fontSize: "clamp(18px,3vw,24px)", color: "#e8f4f8", marginBottom: 16 }}>Оба гайда вместе — 1 200 руб.</p>
             <a
               href="#pricing"
               onClick={() => trackEvent("nutrition_cta_click")}
@@ -592,12 +592,12 @@ export default function Index() {
       </section>
 
       {/* AI */}
-      <section id="ai" style={{ padding: "80px 0", background: "#0d1c28" }}>
-        <div className="max-w-6xl mx-auto px-5">
+      <section id="ai" style={{ padding: "60px 0", background: "#0d1c28" }}>
+        <div className="max-w-6xl mx-auto px-4">
 
           {/* Intro */}
-          <Reveal className="mb-16">
-            <div style={{ background: "linear-gradient(135deg, rgba(13,28,40,0.9) 0%, rgba(6,13,20,1) 100%)", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 24, padding: "56px 48px", position: "relative", overflow: "hidden" }}>
+          <Reveal className="mb-10">
+            <div style={{ background: "linear-gradient(135deg, rgba(13,28,40,0.9) 0%, rgba(6,13,20,1) 100%)", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 24, padding: "clamp(24px,5vw,56px) clamp(16px,4vw,48px)", position: "relative", overflow: "hidden" }}>
               {/* Фоновый акцент */}
               <div style={{ position: "absolute", top: -60, right: -60, width: 240, height: 240, borderRadius: "50%", background: "#00d4ff", opacity: 0.04, filter: "blur(60px)", pointerEvents: "none" }} />
 
@@ -657,7 +657,7 @@ export default function Index() {
 
           {/* Transition */}
           <Reveal>
-            <div style={{ background: "rgba(0,212,255,0.06)", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 16, padding: "28px 36px", textAlign: "center", fontSize: 19, color: "#e8f4f8", lineHeight: 1.7, marginBottom: 64 }}>
+            <div style={{ background: "rgba(0,212,255,0.06)", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 16, padding: "clamp(16px,3vw,28px) clamp(16px,4vw,36px)", textAlign: "center", fontSize: "clamp(15px,2.5vw,19px)", color: "#e8f4f8", lineHeight: 1.7, marginBottom: 40 }}>
               Именно поэтому <strong style={{ color: "#00d4ff" }}>80% людей бросают программы на 2–3 неделе</strong>. Не потому что слабые. Потому что программа не живая — а жизнь живая.
             </div>
           </Reveal>
@@ -668,7 +668,7 @@ export default function Index() {
               Три AI-ассистента, которые работают как личный тренерский штаб 24/7
             </h2>
           </Reveal>
-          <Reveal className="text-center mb-16">
+          <Reveal className="text-center mb-8">
             <p style={{ fontSize: 17, color: "#9ba8b3", maxWidth: 700, margin: "0 auto" }}>
               Не чат-боты с шаблонными ответами. Инструменты, которые понимают силовой тренинг, твою программу и твою ситуацию прямо сейчас.
             </p>
@@ -676,7 +676,7 @@ export default function Index() {
 
           {/* Assistant 1 */}
           <Reveal>
-            <div style={{ background: "#0a1520", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 20, padding: "40px", marginBottom: 24 }}>
+            <div style={{ background: "#0a1520", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 20, padding: "clamp(20px,4vw,40px)", marginBottom: 20 }}>
               <div style={{ fontSize: 44, marginBottom: 12 }}>💪</div>
               <h3 style={{ fontSize: 22, fontWeight: 700, color: "#e8f4f8", marginBottom: 20 }}>
                 Ассистент 1: «Жим не врёт» — AI-тренер по жиму лёжа
@@ -713,7 +713,7 @@ export default function Index() {
 
           {/* Assistant 2 */}
           <Reveal>
-            <div style={{ background: "#0a1520", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 20, padding: "40px", marginBottom: 24 }}>
+            <div style={{ background: "#0a1520", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 20, padding: "clamp(20px,4vw,40px)", marginBottom: 20 }}>
               <div style={{ fontSize: 44, marginBottom: 12 }}>🍖</div>
               <h3 style={{ fontSize: 22, fontWeight: 700, color: "#e8f4f8", marginBottom: 20 }}>
                 Ассистент 2: «Топливо» — AI по питанию для силовых
@@ -750,7 +750,7 @@ export default function Index() {
 
           {/* Assistant 3 */}
           <Reveal>
-            <div style={{ background: "#0a1520", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 20, padding: "40px", marginBottom: 48 }}>
+            <div style={{ background: "#0a1520", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 20, padding: "clamp(20px,4vw,40px)", marginBottom: 32 }}>
               <div style={{ fontSize: 44, marginBottom: 12 }}>📋</div>
               <h3 style={{ fontSize: 22, fontWeight: 700, color: "#e8f4f8", marginBottom: 20 }}>
                 Ассистент 3: «Сборка» — AI-конструктор программ
@@ -813,7 +813,7 @@ export default function Index() {
 
           {/* Mega message */}
           <Reveal>
-            <div style={{ textAlign: "center", background: "linear-gradient(135deg,rgba(0,212,255,0.08),rgba(0,255,136,0.06))", border: "1px solid rgba(0,212,255,0.25)", borderRadius: 20, padding: "48px 40px" }}>
+            <div style={{ textAlign: "center", background: "linear-gradient(135deg,rgba(0,212,255,0.08),rgba(0,255,136,0.06))", border: "1px solid rgba(0,212,255,0.25)", borderRadius: 20, padding: "clamp(24px,5vw,48px) clamp(16px,4vw,40px)" }}>
               <p style={{ fontSize: "clamp(22px,2.5vw,32px)", fontWeight: 700, color: "#e8f4f8", lineHeight: 1.5, marginBottom: 20 }}>
                 Программа даёт тебе план на 8 недель.<br />
                 <span style={{ color: "#00d4ff" }}>Ассистенты дают тебе тренера на всю жизнь.</span>
@@ -828,15 +828,15 @@ export default function Index() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" style={{ padding: "80px 0", background: "#060d14" }}>
-        <div className="max-w-6xl mx-auto px-5">
+      <section id="pricing" style={{ padding: "60px 0", background: "#060d14" }}>
+        <div className="max-w-6xl mx-auto px-4">
           <Reveal className="text-center mb-12">
             <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif" }}>Выбери свой шаг</h2>
           </Reveal>
 
           {/* Бесплатный блок — отдельно над сеткой */}
           <Reveal className="mb-10">
-            <div style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 16, padding: "24px 32px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 20 }}>
+            <div style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 16, padding: "clamp(16px,3vw,24px) clamp(16px,4vw,32px)", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
               <div>
                 <p style={{ fontSize: 12, color: "#9ba8b3", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 6 }}>Не готов платить сразу — начни отсюда</p>
                 <p style={{ fontSize: 16, color: "#e8f4f8" }}>🎁 Гайд «7 ошибок жима» — бесплатно, сразу в Telegram</p>
@@ -903,8 +903,8 @@ export default function Index() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" style={{ padding: "80px 0", background: "#0d1c28" }}>
-        <div className="max-w-6xl mx-auto px-5">
+      <section id="faq" style={{ padding: "60px 0", background: "#0d1c28" }}>
+        <div className="max-w-6xl mx-auto px-4">
           <Reveal className="mb-10">
             <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif" }}>Часто спрашивают</h2>
           </Reveal>
@@ -922,26 +922,26 @@ export default function Index() {
       </section>
 
       {/* FINAL CTA */}
-      <section id="contact" className="grid-pattern" style={{ padding: "120px 0", background: "#060d14", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 600, height: 600, borderRadius: "50%", background: "#00d4ff", opacity: 0.04, filter: "blur(120px)", pointerEvents: "none" }} />
-        <div className="max-w-4xl mx-auto px-5 text-center" style={{ position: "relative", zIndex: 1 }}>
+      <section id="contact" className="grid-pattern" style={{ padding: "80px 0", background: "#060d14", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "min(600px,100vw)", height: "min(600px,100vw)", borderRadius: "50%", background: "#00d4ff", opacity: 0.04, filter: "blur(120px)", pointerEvents: "none" }} />
+        <div className="max-w-4xl mx-auto px-4 text-center" style={{ position: "relative", zIndex: 1 }}>
           <Reveal>
-            <h2 style={{ fontSize: "clamp(40px,5vw,72px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", marginBottom: 16 }}>
+            <h2 style={{ fontSize: "clamp(36px,5vw,72px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif", marginBottom: 12 }}>
               Сотка не придёт сама.
             </h2>
-            <p style={{ fontSize: 26, color: "#9ba8b3", marginBottom: 60 }}>
+            <p style={{ fontSize: "clamp(18px,3vw,26px)", color: "#9ba8b3", marginBottom: 40 }}>
               Но с правильной системой она ближе, чем ты думаешь.
             </p>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
               <div>
-                <h4 style={{ color: "#00d4ff", marginBottom: 10, fontSize: 18, fontWeight: 700 }}>Начни с бесплатного — убедись сам:</h4>
-                <p style={{ color: "#9ba8b3", marginBottom: 20 }}>Подпишись на канал и получи PDF с разбором твоих ошибок. Это ни к чему не обязывает.</p>
+                <h4 style={{ color: "#00d4ff", marginBottom: 10, fontSize: "clamp(16px,2.5vw,18px)", fontWeight: 700 }}>Начни с бесплатного — убедись сам:</h4>
+                <p style={{ color: "#9ba8b3", marginBottom: 16 }}>Подпишись на канал и получи PDF с разбором твоих ошибок. Это ни к чему не обязывает.</p>
                 <SubscribeForm source="final_cta" size="large" />
               </div>
 
-              <div style={{ borderTop: "1px solid rgba(0,212,255,0.12)", paddingTop: 60 }}>
-                <h4 style={{ color: "#00d4ff", marginBottom: 10, fontSize: 18, fontWeight: 700 }}>Знаешь чего хочешь — бери и работай:</h4>
+              <div style={{ borderTop: "1px solid rgba(0,212,255,0.12)", paddingTop: 32 }}>
+                <h4 style={{ color: "#00d4ff", marginBottom: 10, fontSize: "clamp(16px,2.5vw,18px)", fontWeight: 700 }}>Знаешь чего хочешь — бери и работай:</h4>
                 <div style={{ display: "flex", gap: 20, justifyContent: "center", flexWrap: "wrap", alignItems: "flex-end" }}>
                   <a
                     href="https://t.me/zhim_ne_vret"
@@ -968,7 +968,7 @@ export default function Index() {
               </div>
 
               <div>
-                <h4 style={{ color: "#00d4ff", marginBottom: 20, fontSize: 18, fontWeight: 700 }}>Остались вопросы?</h4>
+                <h4 style={{ color: "#00d4ff", marginBottom: 16, fontSize: "clamp(16px,2.5vw,18px)", fontWeight: 700 }}>Остались вопросы?</h4>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center" }}>
                   <div style={{ background: "#0d1c28", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 12, padding: "18px 24px", textAlign: "left", maxWidth: 280 }}>
                     <p style={{ fontSize: 15, color: "#e8f4f8", marginBottom: 8 }}>📣 Следи за каналом — разборы ошибок, советы по технике и программам</p>
@@ -982,7 +982,7 @@ export default function Index() {
               </div>
             </div>
 
-            <p style={{ marginTop: 60, color: "#6b7b8a", fontSize: 13 }}>
+            <p style={{ marginTop: 40, color: "#6b7b8a", fontSize: 13 }}>
               © 2026 Жим не врёт · Все права защищены
             </p>
           </Reveal>
