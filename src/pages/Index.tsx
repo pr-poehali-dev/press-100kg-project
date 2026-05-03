@@ -168,7 +168,7 @@ function SubscribeForm({ source, size = "normal" }: { source: string; size?: "no
             className="px-5 py-2 text-sm font-bold whitespace-nowrap"
             style={{ background: "transparent", border: "1px solid rgba(0,212,255,0.5)", color: "#00d4ff", borderRadius: 8, cursor: "pointer" }}
           >
-            {loading ? "..." : "Получить гайд"}
+            {loading ? "..." : "→"}
           </button>
         </form>
       </div>
@@ -912,25 +912,14 @@ export default function Index() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
               <div>
-                <h4 style={{ color: "#00d4ff", marginBottom: 10, fontSize: 18, fontWeight: 700 }}>Не готов платить — начни бесплатно:</h4>
+                <h4 style={{ color: "#00d4ff", marginBottom: 10, fontSize: 18, fontWeight: 700 }}>Начни с бесплатного — убедись сам:</h4>
                 <p style={{ color: "#9ba8b3", marginBottom: 20 }}>Подпишись на канал и получи PDF с разбором твоих ошибок. Это ни к чему не обязывает.</p>
                 <SubscribeForm source="final_cta" size="large" />
-                <div className="mt-3">
-                  <a
-                    href="https://t.me/zhim_ne_vret"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackEvent("tg_click")}
-                    className="btn-cyan px-8 py-4 text-base font-bold inline-flex mt-3"
-                  >
-                    Получить гайд бесплатно →
-                  </a>
-                </div>
               </div>
 
-              <div>
+              <div style={{ borderTop: "1px solid rgba(0,212,255,0.12)", paddingTop: 60 }}>
                 <h4 style={{ color: "#00d4ff", marginBottom: 10, fontSize: 18, fontWeight: 700 }}>Знаешь чего хочешь — бери и работай:</h4>
-                <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+                <div style={{ display: "flex", gap: 20, justifyContent: "center", flexWrap: "wrap", alignItems: "flex-end" }}>
                   <a
                     href="https://t.me/zhim_ne_vret"
                     target="_blank"
@@ -940,15 +929,18 @@ export default function Index() {
                   >
                     Базовый гайд — 700 руб →
                   </a>
-                  <a
-                    href="https://t.me/zhim_ne_vret"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackEvent("pricing_click", { plan: "Полная система" })}
-                    className="btn-cyan px-7 py-4 text-base font-bold"
-                  >
-                    Полная система — 3 500 руб →
-                  </a>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+                    <span style={{ fontSize: 13, color: "#9ba8b3", fontWeight: 600 }}>🔥 Популярный выбор</span>
+                    <a
+                      href="https://t.me/zhim_ne_vret"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackEvent("pricing_click", { plan: "Полная система" })}
+                      className="btn-cyan px-7 py-4 text-base font-bold"
+                    >
+                      Полная система — 3 500 руб →
+                    </a>
+                  </div>
                 </div>
               </div>
 
