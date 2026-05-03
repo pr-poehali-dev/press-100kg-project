@@ -968,16 +968,22 @@ export default function Index() {
               </div>
 
               <div>
-                <h4 style={{ color: "#00d4ff", marginBottom: 10, fontSize: 18, fontWeight: 700 }}>Остались вопросы?</h4>
-                <p style={{ color: "#9ba8b3" }}>
-                  Напиши в Telegram — отвечу лично.{" "}
-                  <a href="https://t.me/zhim_ne_vret" style={{ color: "#00d4ff" }} onClick={() => trackEvent("tg_personal_click")}>@zhim_ne_vret</a>
-                </p>
+                <h4 style={{ color: "#00d4ff", marginBottom: 20, fontSize: 18, fontWeight: 700 }}>Остались вопросы?</h4>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center" }}>
+                  <div style={{ background: "#0d1c28", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 12, padding: "18px 24px", textAlign: "left", maxWidth: 280 }}>
+                    <p style={{ fontSize: 15, color: "#e8f4f8", marginBottom: 8 }}>📣 Следи за каналом — разборы ошибок, советы по технике и программам</p>
+                    <a href="https://t.me/zhim_ne_vret" target="_blank" rel="noopener noreferrer" style={{ color: "#00d4ff", fontWeight: 700 }} onClick={() => trackEvent("tg_channel_click")}>@zhim_ne_vret</a>
+                  </div>
+                  <div style={{ background: "#0d1c28", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 12, padding: "18px 24px", textAlign: "left", maxWidth: 280 }}>
+                    <p style={{ fontSize: 15, color: "#e8f4f8", marginBottom: 8 }}>💬 Личный вопрос? — пиши напрямую, отвечу лично</p>
+                    <a href="https://t.me/zhim_coach" target="_blank" rel="noopener noreferrer" style={{ color: "#00d4ff", fontWeight: 700 }} onClick={() => trackEvent("tg_personal_click")}>@zhim_coach</a>
+                  </div>
+                </div>
               </div>
             </div>
 
             <p style={{ marginTop: 60, color: "#6b7b8a", fontSize: 13 }}>
-              © 2024 Жим не врёт · Все права защищены
+              © 2026 Жим не врёт · Все права защищены
             </p>
           </Reveal>
         </div>
