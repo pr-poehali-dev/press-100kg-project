@@ -250,7 +250,7 @@ export default function Index() {
       </nav>
 
       {/* HERO */}
-      <section className="grid-pattern" style={{ minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: 80, paddingBottom: 60, position: "relative", overflow: "hidden" }}>
+      <section className="grid-pattern" style={{ minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: "clamp(90px, 14vw, 120px)", paddingBottom: 60, position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "30%", left: "50%", transform: "translateX(-50%)", width: "min(700px, 100vw)", height: "min(700px, 100vw)", borderRadius: "50%", background: "#00d4ff", opacity: 0.04, filter: "blur(120px)", pointerEvents: "none" }} />
         <div className="max-w-6xl mx-auto px-4 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
