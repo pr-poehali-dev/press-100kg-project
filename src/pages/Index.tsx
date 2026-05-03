@@ -51,11 +51,10 @@ const AI_CARDS = [
 ];
 
 const PRICING = [
-  { icon: "🎁", title: "Старт", desc: "Гайд «7 ошибок» + канал", price: "0 руб.", cta: "Начать бесплатно →", href: "https://t.me/zhim_ne_vret", future: "«Завтра ты уже знаешь свою ошибку»", featured: false },
-  { icon: "💪", title: "Базовый", desc: "Гайд «100 кг за 8 недель»", price: "700 руб.", cta: "Получить программу →", href: "#contact", future: "«Завтра у тебя есть план на 8 недель»", featured: false },
-  { icon: "🍖", title: "Сила + Питание", desc: "Гайд по жиму + гайд по питанию", price: "1 200 руб.", cta: "Начать жать больше →", href: "#contact", future: "«Завтра работает и тренировка, и восстановление»", featured: false },
-  { icon: "🤖", title: "С тренером", desc: "Оба гайда + AI «Жим не врёт»", price: "2 500 руб.", cta: "Написать в Telegram →", href: "https://t.me/zhim_coach", future: "«Завтра на любой вопрос есть ответ»", featured: false },
-  { icon: "🔥", title: "Полная система", desc: "Оба гайда + все 3 AI", price: "3 500 руб.", cta: "Написать в Telegram →", href: "https://t.me/zhim_coach", future: "«Завтра у тебя тренер, нутрициолог и программист в кармане»", featured: true },
+  { icon: "💪", title: "Базовый", desc: "Гайд «100 кг за 8 недель»", price: "700 руб.", oldPrice: null, cta: "Получить программу →", href: "#contact", future: "«Завтра у тебя есть план на 8 недель»", featured: false, code: null },
+  { icon: "🍖", title: "Сила + Питание", desc: "Гайд по жиму + гайд по питанию для силового роста. Ешь так, чтобы прогресс не останавливался.", price: "1 200 руб.", oldPrice: null, cta: "Начать жать больше →", href: "#contact", future: "«Завтра у тебя план и для зала, и для кухни»", featured: false, code: null },
+  { icon: "🤖", title: "С тренером", desc: "Оба гайда + AI «Жим не врёт»", price: "2 500 руб.", oldPrice: null, cta: "Купить за 2 500 руб →", href: "https://t.me/zhim_coach", future: "«Завтра на любой вопрос есть ответ»", featured: false, code: null },
+  { icon: "🔥", title: "Полная система", desc: "Оба гайда + все 3 AI", price: "3 500 руб.", oldPrice: "4 400 руб.", cta: "Купить за 3 500 руб →", href: "https://t.me/zhim_coach", future: "«Завтра у тебя тренер, нутрициолог и программист в кармане»", featured: true, code: null },
 ];
 
 const FAQS = [
@@ -835,7 +834,26 @@ export default function Index() {
             <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, fontFamily: "'Bebas Neue', sans-serif" }}>Выбери свой шаг</h2>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-10">
+          {/* Бесплатный блок — отдельно над сеткой */}
+          <Reveal className="mb-10">
+            <div style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.2)", borderRadius: 16, padding: "24px 32px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 20 }}>
+              <div>
+                <p style={{ fontSize: 12, color: "#9ba8b3", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 6 }}>Не готов платить сразу — начни отсюда</p>
+                <p style={{ fontSize: 16, color: "#e8f4f8" }}>🎁 Гайд «7 ошибок жима» — бесплатно, сразу в Telegram</p>
+              </div>
+              <a
+                href="https://t.me/zhim_ne_vret"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("pricing_click", { plan: "Старт" })}
+                className="btn-outline px-6 py-3 text-sm font-bold whitespace-nowrap"
+              >
+                Начать бесплатно →
+              </a>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
             {PRICING.map((p, i) => (
               <Reveal key={i}>
                 <div
@@ -852,7 +870,12 @@ export default function Index() {
                   <div style={{ fontSize: 44, marginBottom: 14 }}>{p.icon}</div>
                   <h4 style={{ color: "#00d4ff", marginBottom: 12, fontSize: 18, fontWeight: 700 }}>{p.title}</h4>
                   <p style={{ color: "#9ba8b3", fontSize: 13, marginBottom: 16, flex: 1 }}>{p.desc}</p>
-                  <div style={{ fontSize: 28, fontWeight: 700, color: "#e8f4f8", marginBottom: 20 }}>{p.price}</div>
+                  <div style={{ marginBottom: 20 }}>
+                    {p.oldPrice && (
+                      <div style={{ fontSize: 14, color: "rgba(232,244,248,0.4)", textDecoration: "line-through", marginBottom: 4 }}>{p.oldPrice} если покупать отдельно</div>
+                    )}
+                    <div style={{ fontSize: 28, fontWeight: 700, color: "#e8f4f8" }}>{p.price}</div>
+                  </div>
                   <a
                     href={p.href}
                     target={p.href.startsWith("http") ? "_blank" : undefined}
